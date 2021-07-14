@@ -1,0 +1,28 @@
+[user]
+	name = Roman Bereziuk
+	email = roma.physicist@gmail.com
+[core]
+	editor = vim
+	pager = diff-so-fancy | less --tabs=4 -RFX
+	excludesfile = /home/roman/.gitignore_global
+[alias]
+	st = status
+	co = checkout
+	br = branch
+	c = commit
+	unstage = reset HEAD --
+	hist = log --pretty=format:'%C(cyan)%h%Creset %C(green bold)%ad%Creset | %s %C(auto)%d%Creset %C(yellow italic)[%an]%Creset' --graph --date=format:'%d-%m-%Y %H:%M:%S'
+	type = cat-file -t
+	dump = cat-file -p
+	visual = !gitk
+	ls = log --oneline
+[credential]
+	helper = store
+[init]
+	defaultBranch = main
+[merge]
+	tool = p4merge
+[mergetool "p4merge"]
+	path = /usr/local/bin/p4merge
+[interactive]
+	diffFilter = diff-so-fancy --patch
