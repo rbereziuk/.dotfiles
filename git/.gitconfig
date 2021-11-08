@@ -2,7 +2,7 @@
 	name = Roman Bereziuk
 	email = roma.physicist@gmail.com
 [core]
-	editor = vim
+	editor = nvim
 	pager = diff-so-fancy | less --tabs=4 -RFX
 	excludesfile = /home/roman/.gitignore_global
 [alias]
@@ -16,6 +16,7 @@
 	dump = cat-file -p
 	visual = !gitk
 	ls = log --oneline
+	push-branch = !git push origin $(git rev-parse --abbrev-ref HEAD)
 [credential]
 	helper = store
 [init]

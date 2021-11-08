@@ -4,12 +4,19 @@ call plug#begin(stdpath('data') . '/plugged')
   "Experimental
   Plug 'digitaltoad/vim-pug'
   Plug 'mhinz/vim-startify'
+  Plug 'ThePrimeagen/harpoon'
+  Plug 'wellle/targets.vim'
+
+  Plug 'wakatime/vim-wakatime'
+
+  Plug 'EdenEast/nightfox.nvim'
+  Plug 'sainnhe/sonokai'
 
   Plug 'kyazdani42/nvim-tree.lua'
   Plug 'phaazon/hop.nvim'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-fugitive'
-  "Plug 'junegunn/goyo.vim'
+  Plug 'junegunn/goyo.vim'
   "Plug 'junegunn/limelight.vim'
   Plug 'mattn/emmet-vim'
 
@@ -55,9 +62,12 @@ call plug#end()
 
 " ------------- ⚙️  SETTINGS ------------- {{{
 syntax on
-"colorscheme gruvbox
-colorscheme ayu
 set background=dark
+let g:gruvbox_contrast_dark = 'hard'
+colorscheme gruvbox
+"colorscheme ayu
+"set t_Co=256 "For lightline plugin force 256 terminal colors
+highlight Comment cterm=italic gui=italic
 
 " Enable 24bit true color for night owl colorscheme
 if (has("termguicolors"))
@@ -240,7 +250,16 @@ EOF
 imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
 smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
 
-
 let g:startify_change_to_vcs_root = 1
-    let g:startify_change_cmd = 'cd'
+let g:startify_change_cmd = 'cd'
 
+
+"===== 📌 LANGUAGE ===== {{{
+
+"Set ukraine in insert mode for easy typing
+set keymap=ukrainian-jcuken
+set keymap=ukrainian-enhanced
+set imsearch=0
+set iminsert=0 " щоб дефолтним методом в insert/search mode була англійська
+
+"}}}
