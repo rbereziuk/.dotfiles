@@ -1,28 +1,31 @@
 " vim:fdm=marker
 " ------------- 📦 PLUGINS DEFINITION ------------- {{{
 call plug#begin(stdpath('data') . '/plugged')
-  "Experimental
-  Plug 'digitaltoad/vim-pug'
-  Plug 'mhinz/vim-startify'
+
+  " --- Browse ---
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
+  Plug 'nvim-telescope/telescope-media-files.nvim'
+
+  " --- Motion ---
+  Plug 'romainl/vim-cool' "disables search highlighting when you are done searching
   Plug 'ThePrimeagen/harpoon'
   Plug 'wellle/targets.vim'
-
-  Plug 'wakatime/vim-wakatime'
-
-  Plug 'EdenEast/nightfox.nvim'
-  Plug 'sainnhe/sonokai'
-
-  Plug 'kyazdani42/nvim-tree.lua'
   Plug 'phaazon/hop.nvim'
-  Plug 'tpope/vim-surround'
-  Plug 'tpope/vim-fugitive'
-  Plug 'junegunn/goyo.vim'
-  "Plug 'junegunn/limelight.vim'
+  Plug 'preservim/tagbar'
+
+  " --- Code change ---
   Plug 'mattn/emmet-vim'
+  Plug 'sbdchd/neoformat'
+  Plug 'tpope/vim-surround'
+  Plug 'numToStr/Comment.nvim'
 
+  " --- Git ---
+  Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
-
-  " LSP
+  
+  " --- LSP ---
   Plug 'neovim/nvim-lspconfig' "Collection of configurations for built-in LSP client
   Plug 'hrsh7th/nvim-cmp' "Autocompletion plugin
   Plug 'hrsh7th/cmp-nvim-lsp' "LSP source for nvim-cmp
@@ -31,31 +34,32 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'hrsh7th/cmp-cmdline'
   Plug 'onsails/lspkind-nvim'
   Plug 'windwp/nvim-autopairs'
+  Plug 'tami5/lspsaga.nvim'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 
   " For vsnip users.
   Plug 'hrsh7th/cmp-vsnip'
   Plug 'hrsh7th/vim-vsnip'
 
-
-  "Plug 'glepnir/lspsaga.nvim'
-  Plug 'rinx/lspsaga.nvim'
-  "Plug 'nvim-lua/"completion-nvim'
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-
-  Plug 'sbdchd/neoformat'
-  Plug 'ActivityWatch/aw-watcher-vim'
-
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-lua/popup.nvim'
-  Plug 'nvim-telescope/telescope.nvim'
-
+  " --- Interface ---
+  Plug 'mhinz/vim-startify'
+  Plug 'digitaltoad/vim-pug'
+  Plug 'kyazdani42/nvim-tree.lua'
+  Plug 'junegunn/goyo.vim'
+  "Plug 'junegunn/limelight.vim'
   Plug 'gruvbox-community/gruvbox'
   Plug 'haishanh/night-owl.vim'
   Plug 'Shatur/neovim-ayu'
-
+  Plug 'EdenEast/nightfox.nvim'
+  Plug 'sainnhe/sonokai'
   Plug 'hoob3rt/lualine.nvim'
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'ryanoasis/vim-devicons'
+  Plug 'akinsho/bufferline.nvim'
+  
+  " --- Track statictics ---
+  Plug 'ActivityWatch/aw-watcher-vim'
+  Plug 'wakatime/vim-wakatime'
   
 call plug#end()
 " }}}
@@ -65,7 +69,6 @@ syntax on
 set background=dark
 let g:gruvbox_contrast_dark = 'hard'
 colorscheme gruvbox
-"colorscheme ayu
 "set t_Co=256 "For lightline plugin force 256 terminal colors
 highlight Comment cterm=italic gui=italic
 
@@ -107,6 +110,9 @@ map <leader>w :w!<CR>
 map <leader>pi :PlugInstall<CR>
 nmap <leader>ec :tabedit ~/.config/nvim/init.vim<CR>
 
+"Active magic search for Reg exp
+nnoremap / /\v
+
 "Hide search hightlights
 nmap <silent> <BS> :nohlsearch<CR>
 
@@ -118,19 +124,12 @@ nnoremap <leader>n :NvimTreeFindFile<CR>
 "hop
 nnoremap <leader>s :HopChar1<CR>
 
-nnoremap <leader>dw :Goyo 60%<CR>
+" Tabbar
+nmap <F8> :TagbarToggle<CR>
 
 " }}}
 
 " ------------- 🔌 PLUGINS SETTINGS ------------- {{{
-
-" --- Goyo --- {
-function! s:goyo_enter()
-  set number relativenumber
-endfunction
-
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-" }
 
 " }}}
 
@@ -185,12 +184,6 @@ endfunction
 
 lua << EOF
 
-require('lualine').setup{
-  options = { 
-    section_separators = '',
-    component_separators = ''
-  }
-}
 require'hop'.setup()
 require'nvim-tree'.setup({
   update_cwd = true
@@ -210,7 +203,8 @@ require'nvim-treesitter.configs'.setup {
     "json",
     "yaml",
     "html",
-    "scss"
+    "scss",
+    "typescript"
   },
 }
 
@@ -246,9 +240,16 @@ EOF
   autocmd FileType html,pug,css,scss,typescriptreact,vue,javascript,markdown.mdx EmmetInstall
 "}}}
 "
+
 " Expand
-imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
-smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+"imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+"smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+
+" Expand or jump
+" Expand or jump
+imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+
 
 let g:startify_change_to_vcs_root = 1
 let g:startify_change_cmd = 'cd'
@@ -263,3 +264,8 @@ set imsearch=0
 set iminsert=0 " щоб дефолтним методом в insert/search mode була англійська
 
 "}}}
+
+lua << EOF
+require("bufferline").setup{}
+require('Comment').setup()
+EOF

@@ -1,5 +1,3 @@
-lua << EOF
-
 -- DIAGNOSTICS
 local util = require "lspconfig".util
 
@@ -13,7 +11,7 @@ require'lspconfig'.diagnosticls.setup{
     ["textDocument/publishDiagnostics"] = vim.lsp.with(
       vim.lsp.diagnostic.on_publish_diagnostics, {
         -- Disable virtual_text
-        virtual_text = false
+        virtual_text = true
       }
     ),
   },
@@ -81,4 +79,3 @@ require'lspconfig'.diagnosticls.setup{
   }
 }
 
-EOF
