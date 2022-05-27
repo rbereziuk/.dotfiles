@@ -10,15 +10,19 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-  "Plug 'mhinz/vim-startify'
   Plug 'junegunn/goyo.vim'
   Plug 'gruvbox-community/gruvbox'
+  Plug 'ayu-theme/ayu-vim'
   Plug 'haishanh/night-owl.vim'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'ap/vim-css-color'
   Plug 'sheerun/vim-polyglot'
+  Plug 'machakann/vim-highlightedyank'
 
+  Plug 'pangloss/vim-javascript'
+"Plug 'peitalin/vim-jsx-typescript'
+Plug 'leafgarland/typescript-vim'
   Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } "On-demand loading
   Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
   Plug 'tpope/vim-vinegar'
@@ -41,16 +45,16 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
  
   Plug 'sjl/gundo.vim'
-  Plug 'liuchengxu/vista.vim'
+  "Plug 'liuchengxu/vista.vim'
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
 
   Plug 'ryanoasis/vim-devicons'
+  Plug 'junegunn/vim-easy-align'
 
   "Other
   "Plug 'yggdroot/indentline'
   "Plug 'mileszs/ack.vim'
-  "Plug 'maxmellon/vim-jsx-pretty'
   "Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 call plug#end()
@@ -60,6 +64,8 @@ call plug#end()
 "===== 📌 SETTINGS ===== {{{
 syntax on
 colorscheme gruvbox
+let ayucolor="dark"   " for dark version of theme
+colorscheme ayu
 set background=dark
 set t_Co=256 "For lightline plugin force 256 terminal colors
 
@@ -88,6 +94,7 @@ set cursorline
 set hidden "Allow change edited buffer
 set backspace=indent,eol,start "Make backspace behave like in every other editor
 set noshowmode "Disable vim text insert mode indicator on bottom statusBar
+set signcolumn=yes "enable an additional column beside line numbers
 set noerrorbells visualbell "Disable ennoing bell sound
 "set t_vb= "part of settings to disable ennoing bell
 
@@ -198,6 +205,8 @@ nmap <leader>ev :tabedit $MYVIMRC<cr>
 "Hide search hightlights
 nmap <silent> <BS> :nohlsearch<CR>
 
+vnoremap <leader>p "_dP
+
 "Specific app maps
 map <leader>rn :w\|:!node %<cr>
 map <leader>rp :w\|:!python3 %<cr>
@@ -220,7 +229,7 @@ nmap <silent> <LEFT><LEFT>    :cpfile<CR><C-G>
 map <C-n> :NERDTreeToggle<CR>
 
 "EasyMotion
-map <Leader> <Plug>(easymotion-prefix)
+"map <Leader> <Plug>(easymotion-prefix)
 
 "Gundo: toggle
 nnoremap <leader>u :GundoToggle<CR>
@@ -562,3 +571,4 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 "endfunction
 
 "}}}
+
