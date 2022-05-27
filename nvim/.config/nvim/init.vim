@@ -46,20 +46,25 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'digitaltoad/vim-pug'
   Plug 'kyazdani42/nvim-tree.lua'
   Plug 'junegunn/goyo.vim'
-  "Plug 'junegunn/limelight.vim'
+  Plug 'hoob3rt/lualine.nvim'
+  Plug 'akinsho/bufferline.nvim'
+
+  " --- Colorscheme ---
   Plug 'gruvbox-community/gruvbox'
   Plug 'haishanh/night-owl.vim'
   Plug 'Shatur/neovim-ayu'
-  Plug 'EdenEast/nightfox.nvim'
   Plug 'sainnhe/sonokai'
-  Plug 'hoob3rt/lualine.nvim'
-  Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'EdenEast/nightfox.nvim'
+  Plug 'rebelot/kanagawa.nvim'
+
+  " --- Icons ---
   Plug 'ryanoasis/vim-devicons'
-  Plug 'akinsho/bufferline.nvim'
+  Plug 'kyazdani42/nvim-web-devicons'
   
   " --- Track statictics ---
   Plug 'ActivityWatch/aw-watcher-vim'
-  Plug 'wakatime/vim-wakatime'
+
+  Plug 'nvim-orgmode/orgmode'
   
 call plug#end()
 " }}}
@@ -110,14 +115,15 @@ map <leader>w :w!<CR>
 map <leader>pi :PlugInstall<CR>
 nmap <leader>ec :tabedit ~/.config/nvim/init.vim<CR>
 
-"Active magic search for Reg exp
+"Active 'very magic' mode search for Reg exp
 nnoremap / /\v
 
 "Hide search hightlights
 nmap <silent> <BS> :nohlsearch<CR>
 
 "Nvim Tree
-nnoremap <C-n> :NvimTreeToggle<CR>
+"nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <C-n> :NvimTreeFindFileToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
 
@@ -126,6 +132,12 @@ nnoremap <leader>s :HopChar1<CR>
 
 " Tabbar
 nmap <F8> :TagbarToggle<CR>
+
+" Simplify the navigation when search help
+nmap <silent> <RIGHT>         :cnext<CR>
+nmap <silent> <RIGHT><RIGHT>  :cnfile<CR><C-G>
+nmap <silent> <LEFT>          :cprev<CR>
+nmap <silent> <LEFT><LEFT>    :cpfile<CR><C-G>
 
 " }}}
 
@@ -183,11 +195,12 @@ endfunction
 " ------------- 🌑 LUA ------------- {{{
 
 lua << EOF
-
 require'hop'.setup()
 require'nvim-tree'.setup({
   update_cwd = true
 })
+require("bufferline").setup{}
+require('Comment').setup()
 
 require'nvim-treesitter.configs'.setup {
   highlight = {
@@ -250,7 +263,6 @@ EOF
 imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
 smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
 
-
 let g:startify_change_to_vcs_root = 1
 let g:startify_change_cmd = 'cd'
 
@@ -265,7 +277,14 @@ set iminsert=0 " щоб дефолтним методом в insert/search mode 
 
 "}}}
 
-lua << EOF
-require("bufferline").setup{}
-require('Comment').setup()
-EOF
+
+"let g:startify_custom_header = 'startify#pad(startify#fortune#cowsay())'
+
+let g:ascii = [
+      \ '        __',
+      \ '.--.--.|__|.--------.',
+      \ '|  |  ||  ||        |',
+      \ ' \___/ |__||__|__|__|',
+      \ ''
+      \]
+let g:startify_custom_header = g:ascii + startify#fortune#boxed()
