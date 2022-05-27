@@ -2,3 +2,7 @@
 function md() {
 	mkdir -p "$@" && cd "$@"
 }
+
+# Git commit withoud quotes
+function fgc { git commit -m "$*"; }
+#function fgc { git commit -a -m "$*"; }
