@@ -1,0 +1,7 @@
+--recurse=yes
+--exclude=.git
+--exclude=node_modules/*
+--exclude=vendor/*
+--exclude=build
+--exclude=package*
+--exclude=webpack.config.js
