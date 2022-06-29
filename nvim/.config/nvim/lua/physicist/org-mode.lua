@@ -1,5 +1,4 @@
--- init.lua
-
+--[[
 -- Load custom tree-sitter grammar for org filetype
 require('orgmode').setup_ts_grammar()
 
@@ -18,3 +17,5 @@ require('orgmode').setup({
   org_agenda_files = {'~/Lab/org-folder/*'},
   org_default_notes_file = '~/Lab/org-folder/refile.org',
 })
+
+--]]

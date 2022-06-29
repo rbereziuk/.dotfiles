@@ -62,9 +62,9 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'kyazdani42/nvim-web-devicons'
   
   " --- Track statictics ---
-  Plug 'ActivityWatch/aw-watcher-vim'
+  "Plug 'ActivityWatch/aw-watcher-vim'
 
-  Plug 'nvim-orgmode/orgmode'
+  "Plug 'nvim-orgmode/orgmode'
   
 call plug#end()
 " }}}
@@ -288,3 +288,5 @@ let g:ascii = [
       \ ''
       \]
 let g:startify_custom_header = g:ascii + startify#fortune#boxed()
+
+lua require('physicist')
