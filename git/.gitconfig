@@ -17,13 +17,7 @@
 	visual = !gitk
 	ls = log --oneline
 	push-branch = !git push origin $(git rev-parse --abbrev-ref HEAD)
-[credential]
-	helper = store
 [init]
 	defaultBranch = main
-[merge]
-	tool = p4merge
-[mergetool "p4merge"]
-	path = /usr/local/bin/p4merge
 [interactive]
 	diffFilter = diff-so-fancy --patch
