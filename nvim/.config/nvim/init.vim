@@ -65,7 +65,7 @@ call plug#begin(stdpath('data') . '/plugged')
   "Plug 'ActivityWatch/aw-watcher-vim'
 
   "Plug 'nvim-orgmode/orgmode'
-  
+  "Plug 'github/copilot.vim'  
 call plug#end()
 " }}}
 
@@ -141,10 +141,6 @@ nmap <silent> <LEFT><LEFT>    :cpfile<CR><C-G>
 
 " }}}
 
-" ------------- 🔌 PLUGINS SETTINGS ------------- {{{
-
-" }}}
-
 " ------------- 🎛️  AUTOCOMMANS ------------- {{{
 augroup autosourcing
   autocmd!
@@ -174,66 +170,34 @@ augroup END
 
 " }}}
 
-" ------------- 💊 HELPERS ------------- {{{
 
-"Make :help appear in a full-screen tab, instead of a window
-"Only apply to .txt files...
-augroup HelpInTabs
-  autocmd!
-  autocmd BufEnter  *.txt   call HelpInNewTab()
-augroup END
-"Only apply to help files...
-function! HelpInNewTab ()
-  if &buftype == 'help'
-    "Convert the help window to a tab...
-    execute "normal \<C-W>T"
-  endif
-endfunction
-
-" }}}
-
-" ------------- 🌑 LUA ------------- {{{
-
-lua << EOF
-require'hop'.setup()
-require'nvim-tree'.setup({
-  update_cwd = true
-})
-require("bufferline").setup{}
-require('Comment').setup()
-
-EOF
-
-"---------------"
 " Remapping <C-y>, just doesn't cut it.
-  function! s:expand_html_tab()
-" try to determine if we're within quotes or tags.
-" if so, assume we're in an emmet fill area.
-   let line = getline('.')
-   if col('.') < len(line)
-     let line = matchstr(line, '[">][^<"]*\%'.col('.').'c[^>"]*[<"]')
-     if len(line) >= 2
+function! s:expand_html_tab()
+  "try to determine if we're within quotes or tags.
+  "if so, assume we're in an emmet fill area.
+  let line = getline('.')
+    if col('.') < len(line)
+      let line = matchstr(line, '[">][^<"]*\%'.col('.').'c[^>"]*[<"]')
+      if len(line) >= 2
         return "\<C-n>"
-     endif
-   endif
-" expand anything emmet thinks is expandable.
+      endif
+    endif
+  "expand anything emmet thinks is expandable.
   if emmet#isExpandable()
     return emmet#expandAbbrIntelligent("\<tab>")
     " return "\<C-y>,"
   endif
-" return a regular tab character
+  "return a regular tab character
   return "\<tab>"
-  endfunction
-  " let g:user_emmet_expandabbr_key='<Tab>'
-  " imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+endfunction
+" let g:user_emmet_expandabbr_key='<Tab>'
+" imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
-  autocmd FileType html,pug,css,scss,typescriptreact,vue,javascript,markdown.mdx imap <silent><buffer><expr><tab> <sid>expand_html_tab()
+autocmd FileType html,pug,css,scss,typescriptreact,vue,markdown.mdx imap <silent><buffer><expr><tab> <sid>expand_html_tab()
   let g:user_emmet_mode='a'
   let g:user_emmet_complete_tag = 0
   let g:user_emmet_install_global = 0
-  autocmd FileType html,pug,css,scss,typescriptreact,vue,javascript,markdown.mdx EmmetInstall
-"}}}
-"
+autocmd FileType html,pug,css,scss,typescriptreact,vue,markdown.mdx EmmetInstall
 
 " Expand
 "imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
@@ -244,30 +208,20 @@ EOF
 imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
 smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
 
-let g:startify_change_to_vcs_root = 1
-let g:startify_change_cmd = 'cd'
+"imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+"let g:copilot_no_tab_map = v:true
 
-
-"===== 📌 LANGUAGE ===== {{{
-
-"Set ukraine in insert mode for easy typing
-set keymap=ukrainian-jcuken
-set keymap=ukrainian-enhanced
-set imsearch=0
-set iminsert=0 " щоб дефолтним методом в insert/search mode була англійська
-
-"}}}
-
-
-"let g:startify_custom_header = 'startify#pad(startify#fortune#cowsay())'
-
-let g:ascii = [
-      \ '        __',
-      \ '.--.--.|__|.--------.',
-      \ '|  |  ||  ||        |',
-      \ ' \___/ |__||__|__|__|',
-      \ ''
-      \]
-let g:startify_custom_header = g:ascii + startify#fortune#boxed()
+" ------------- 🌑 LUA ------------- {{{
 
 lua require('physicist')
+
+lua << EOF
+
+require'hop'.setup()
+require'nvim-tree'.setup({
+  update_cwd = true
+})
+require("bufferline").setup{}
+require('Comment').setup()
+
+EOF
