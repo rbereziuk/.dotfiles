@@ -36,6 +36,9 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'windwp/nvim-autopairs'
   Plug 'tami5/lspsaga.nvim'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+  Plug 'nvim-treesitter/playground'
+  Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+  Plug 'nvim-treesitter/nvim-treesitter-context'
 
   " For vsnip users.
   Plug 'hrsh7th/cmp-vsnip'
@@ -64,8 +67,9 @@ call plug#begin(stdpath('data') . '/plugged')
   " --- Track statictics ---
   "Plug 'ActivityWatch/aw-watcher-vim'
 
-  "Plug 'nvim-orgmode/orgmode'
+  " --- TESTING ---
   "Plug 'github/copilot.vim'  
+  "Plug 'nvim-orgmode/orgmode'
 call plug#end()
 " }}}
 
@@ -211,17 +215,9 @@ smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l
 "imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 "let g:copilot_no_tab_map = v:true
 
-" ------------- 🌑 LUA ------------- {{{
-
-lua require('physicist')
 
 lua << EOF
 
-require'hop'.setup()
-require'nvim-tree'.setup({
-  update_cwd = true
-})
-require("bufferline").setup{}
-require('Comment').setup()
-
 EOF
+
+lua require('physicist')
