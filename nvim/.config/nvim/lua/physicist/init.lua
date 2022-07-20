@@ -1,7 +1,7 @@
 require('physicist/lsp')
 require('physicist/tree-sitter')
 require('physicist/complition')
---require('physicist/diagnostics')
+require('physicist/diagnostics')
 require('physicist/lualine')
 
 -- Plugins
@@ -11,3 +11,4 @@ require'nvim-tree'.setup({
 })
 require("bufferline").setup{}
 require('Comment').setup()
+
