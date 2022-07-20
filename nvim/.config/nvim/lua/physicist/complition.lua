@@ -1,8 +1,11 @@
 -- COMPLETION
 local cmp = require'cmp'
 local lspkind = require('lspkind')
-local lspsaga = require 'lspsaga'
 require('nvim-autopairs').setup{}
+
+lspkind.init({
+
+})
 
 cmp.setup({
   snippet = {
@@ -27,8 +30,24 @@ cmp.setup({
     { name = 'vsnip' },
     { name = "buffer" }
   },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
   formatting = {
-    format = lspkind.cmp_format({with_text = false, maxwidth = 50})
+    format = lspkind.cmp_format({
+      mode = 'symbol_text',
+      --with_text = false,
+      --maxwidth = 50
+    })
+    --[[format = function(entry, vim_item)
+      vim_item.menu = ({
+        nvim_lsp = "[LSP]",
+        look = "[Dict]",
+        buffer = "[Buffer]",
+      })[entry.source.name]
+      return vim_item
+    end]]
   }
 })
 

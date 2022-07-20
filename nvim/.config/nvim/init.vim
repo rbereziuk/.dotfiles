@@ -34,7 +34,7 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'hrsh7th/cmp-cmdline'
   Plug 'onsails/lspkind-nvim'
   Plug 'windwp/nvim-autopairs'
-  Plug 'tami5/lspsaga.nvim'
+  Plug 'glepnir/lspsaga.nvim'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
   Plug 'nvim-treesitter/playground'
   Plug 'nvim-treesitter/nvim-treesitter-textobjects'
