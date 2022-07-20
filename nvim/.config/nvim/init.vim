@@ -51,6 +51,7 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'junegunn/goyo.vim'
   Plug 'hoob3rt/lualine.nvim'
   Plug 'akinsho/bufferline.nvim'
+  Plug 'rcarriga/nvim-notify'
 
   " --- Colorscheme ---
   Plug 'gruvbox-community/gruvbox'
@@ -217,6 +218,8 @@ smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l
 
 
 lua << EOF
+
+vim.notify = require("notify")
 
 EOF
 
