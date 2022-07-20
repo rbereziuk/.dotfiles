@@ -64,6 +64,9 @@ call plug#begin(stdpath('data') . '/plugged')
   " --- Icons ---
   Plug 'ryanoasis/vim-devicons'
   Plug 'kyazdani42/nvim-web-devicons'
+
+  " --- Other ---
+  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
   
   " --- Track statictics ---
   "Plug 'ActivityWatch/aw-watcher-vim'
@@ -71,6 +74,12 @@ call plug#begin(stdpath('data') . '/plugged')
   " --- TESTING ---
   "Plug 'github/copilot.vim'  
   "Plug 'nvim-orgmode/orgmode'
+  "Plug 'toppair/reach.nvim'
+  Plug '/home/roman/Lab/stackmap.nvim/'
+  Plug 'godlygeek/tabular'
+  "Plug 'preservim/vim-markdown'
+  "Plug 'vim-pandoc/vim-pandoc'
+  Plug 'vim-pandoc/vim-pandoc-syntax'
 call plug#end()
 " }}}
 
@@ -133,7 +142,8 @@ nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
 
 "hop
-nnoremap <leader>s :HopChar1<CR>
+"onoremap <leader>s :HopChar1<CR>
+map <leader>s :HopChar1<CR>
 
 " Tabbar
 nmap <F8> :TagbarToggle<CR>
@@ -175,7 +185,6 @@ augroup END
 
 " }}}
 
-
 " Remapping <C-y>, just doesn't cut it.
 function! s:expand_html_tab()
   "try to determine if we're within quotes or tags.
@@ -216,7 +225,6 @@ smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l
 "imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 "let g:copilot_no_tab_map = v:true
 
-
 lua << EOF
 
 vim.notify = require("notify")
@@ -224,3 +232,11 @@ vim.notify = require("notify")
 EOF
 
 lua require('physicist')
+let g:gitgutter_sign_added = ''
+let g:gitgutter_sign_modified = ''
+let g:gitgutter_sign_removed = ''
+
+let @q = "Iconsole.log(\<Esc>A)\<Esc>"
+
+"Go to index of notes and set working directory to my notes
+nnoremap <leader>kb :e $KNOWLEDGE_BASE_DIR/index.md<CR>:cd $KNOWLEDGE_BASE_DIR<CR>

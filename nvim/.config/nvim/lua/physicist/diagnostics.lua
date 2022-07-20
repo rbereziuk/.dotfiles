@@ -19,10 +19,7 @@ require'lspconfig'.diagnosticls.setup{
     linters = {
       eslint = {
         command = "./node_modules/.bin/eslint",
-        --rootPatterns = {".eslintrc.json", ".git"},
-
-        --command = "eslint",
-        rootPatterns = {".git"},
+        rootPatterns = {".eslintrc.json", ".git"},
         debounce = 100,
         args = {
           "--stdin",

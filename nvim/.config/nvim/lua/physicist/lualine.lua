@@ -1,5 +1,5 @@
 require('lualine').setup{
-  options = { 
+  options = {
     section_separators = '',
     component_separators = '',
     globalstatus = true
