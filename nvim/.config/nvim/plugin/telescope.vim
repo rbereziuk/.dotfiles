@@ -25,4 +25,6 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>ft <cmd>Telescope tags only_sort_tags=true<CR>
 nnoremap <Leader>fdf <cmd>lua require'telescope.builtin'.git_files{ cwd = "~/.dotfiles/" }<CR>
 nnoremap <Leader>fa <cmd>lua require'telescope.builtin'.find_files{ cwd = "~/", hidden = true }<CR>
+nnoremap <Leader>fkb <cmd>lua require'telescope.builtin'.find_files{ cwd = "~/Documents/Knowledge-base/" }<CR>
 
+nnoremap <leader>fh <cmd>Telescope help_tags<CR>

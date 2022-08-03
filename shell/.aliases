@@ -1,7 +1,4 @@
 # GENERAL
-alias copy-ssh="cat ~/.ssh/id_rsa.pub | xclip -sel clip"
-#
-# Shortcuts
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
@@ -9,9 +6,9 @@ alias ovim="/usr/bin/vim"
 alias nakedvim="vim -u NONE -N"
 alias g="git"
 alias c='clear'
-alias cp="cp -i"                          # confirm before overwriting something
-alias df='df -h'                          # human-readable sizes
-alias free='free -m'                      # show sizes in MB
+alias cp="cp -i"      # confirm before overwriting something
+alias df='df -h'      # human-readable sizes
+alias free='free -m'  # show sizes in MB
 alias more=less
 
 # lsd
@@ -38,6 +35,8 @@ alias got='git '
 alias get='git '
 
 alias lg='lazygit'
+
+alias copy-ssh="cat ~/.ssh/id_rsa.pub | xclip -sel clip"
 
 # APPS
 alias tldr='tldr -t ocean'

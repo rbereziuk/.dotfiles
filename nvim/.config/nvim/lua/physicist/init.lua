@@ -3,6 +3,8 @@ require('physicist/tree-sitter')
 require('physicist/complition')
 require('physicist/diagnostics')
 require('physicist/lualine')
+--require('physicist/telekasten')
+require('physicist.global')
 
 -- Plugins
 require'hop'.setup()

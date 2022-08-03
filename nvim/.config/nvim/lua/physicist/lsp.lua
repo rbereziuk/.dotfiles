@@ -10,6 +10,9 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
+vim.keymap.set("n", "[e", require("lspsaga.diagnostic").goto_prev, { silent = true, noremap =true })
+vim.keymap.set("n", "]e", require("lspsaga.diagnostic").goto_next, { silent = true, noremap =true })
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -31,7 +34,7 @@ local on_attach = function(client, bufnr)
   end, bufopts)
   vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
   --vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+  --vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 
@@ -41,8 +44,12 @@ local on_attach = function(client, bufnr)
 
   vim.keymap.set("n", "gs", "<Cmd>Lspsaga signature_help<CR>", { silent = true,noremap = true })
 
+  -- code action
+  vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true,noremap = true })
+  vim.keymap.set("v", "<leader>ca", "<cmd><C-U>Lspsaga range_code_action<CR>", { silent = true,noremap = true })
+
   -- Rename
-  vim.keymap.set("n", "rn", "<cmd>Lspsaga rename<CR>", { silent = true,noremap = true })
+  vim.keymap.set("n", "<space>rn", "<cmd>Lspsaga rename<CR>", { silent = true,noremap = true })
 
   --vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>Lspsaga hover_doc<cr>', opts)
   --buf_set_keymap('n', 'K', '<cmd>Lspsaga hover_doc<cr>', opts)
@@ -105,3 +112,30 @@ require('lspconfig').jsonls.setup{
   }
 }
 
+--require "vim.lsp.protocol".CompletionItemKind = {
+--  "  (text)",
+--  "  (method)",
+--  "  (fun)",
+--  "  (constructor)",
+--  "ﰠ  (field)",
+--  " (var)",
+--  "ﴯ  (class)",
+--  "  (interface)",
+--  "  (module)",
+--  "ﰠ  (property)",
+--  "塞 (unit)",
+--  "  (value)",
+--  "  (enum)",
+--  "  (keyword)",
+--  "  (snippet)",
+--  "  (color)",
+--  "  (file)",
+--  "  (reference)",
+--  "  (folder)",
+--  "  (enum-member)",
+--  "  (constant)",
+--  "פּ  (struct)",
+--  "  (event)",
+--  "  (operator)",
+--  "   (type-param)"
+--}

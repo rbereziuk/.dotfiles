@@ -1,4 +1,4 @@
-" vim:fdm=marker
+"- vim:fdm=marker
 " ------------- 📦 PLUGINS DEFINITION ------------- {{{
 call plug#begin(stdpath('data') . '/plugged')
 
@@ -32,6 +32,7 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/cmp-path'
   Plug 'hrsh7th/cmp-cmdline'
+  Plug 'hrsh7th/cmp-nvim-lua'
   Plug 'onsails/lspkind-nvim'
   Plug 'windwp/nvim-autopairs'
   Plug 'glepnir/lspsaga.nvim'
@@ -67,6 +68,7 @@ call plug#begin(stdpath('data') . '/plugged')
 
   " --- Other ---
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+  Plug 'norcalli/nvim-colorizer.lua'
   
   " --- Track statictics ---
   "Plug 'ActivityWatch/aw-watcher-vim'
@@ -76,10 +78,16 @@ call plug#begin(stdpath('data') . '/plugged')
   "Plug 'nvim-orgmode/orgmode'
   "Plug 'toppair/reach.nvim'
   Plug '/home/roman/Lab/stackmap.nvim/'
+  Plug '/home/roman/Lab/nvim-plugins/dailynotes.nvim/'
+
   Plug 'godlygeek/tabular'
-  "Plug 'preservim/vim-markdown'
+  Plug 'preservim/vim-markdown'
   "Plug 'vim-pandoc/vim-pandoc'
-  Plug 'vim-pandoc/vim-pandoc-syntax'
+  "Plug 'vim-pandoc/vim-pandoc-syntax'
+  "Plug 'khzaw/vim-conceal'
+  "Plug 'renerocksai/telekasten.nvim'
+  Plug 'dhruvasagar/vim-table-mode'
+  Plug 'jose-elias-alvarez/null-ls.nvim'
 call plug#end()
 " }}}
 
@@ -162,6 +170,11 @@ augroup autosourcing
   autocmd BufWritePost init.vim source %
 augroup END
 
+augroup noting
+  autocmd!
+  autocmd FileType markdown set linebreak
+augroup END
+
 "highlight yanked text
 augroup highlight_yank
     autocmd!
@@ -171,7 +184,7 @@ augroup END
 "Neoformat
 augroup fmt
   autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
+  autocmd BufWritePre * undojoin|Neoformat prettier
 augroup END
 
 "Terminal
@@ -181,6 +194,11 @@ augroup neovim_terminal
   autocmd TermOpen * startinsert
   "Disables number lines on terminal buffers
   autocmd TermOpen * setlocal nonumber norelativenumber signcolumn=no
+augroup END
+
+augroup wikilinks
+  autocmd!
+  au BufRead,BufNewFile */Knowledge-base/** set suffixesadd=.md
 augroup END
 
 " }}}
@@ -240,3 +258,46 @@ let @q = "Iconsole.log(\<Esc>A)\<Esc>"
 
 "Go to index of notes and set working directory to my notes
 nnoremap <leader>kb :e $KNOWLEDGE_BASE_DIR/index.md<CR>:cd $KNOWLEDGE_BASE_DIR<CR>
+
+nnoremap <leader>rl :sourse %<cr>
+
+"highlight Normal guibg=none
+"highlight NonText guibg=none
+
+nnoremap <leader>dn <cmd>lua require'dailynotes'.open_window()<cr>
+
+lua require'colorizer'.setup()
+let g:mkdp_theme = 'light'
+
+let g:neoformat_javascript_prettier = {
+  \ 'exe': './node_modules/.bin/prettier',
+  \ 'args': ['--write', '--config .prettierrc.json'],
+  \ 'replace': 1
+  \ }
+
+lua << EOF
+
+--require("null-ls").setup({
+--  sources = {
+--    require("null-ls").builtins.formatting.prettier,
+--    --require("null-ls").builtins.formatting.stylua,
+--    require("null-ls").builtins.diagnostics.eslint,
+--    require("null-ls").builtins.completion.spell,
+--  },
+--  -- you can reuse a shared lspconfig on_attach callback here
+--  on_attach = function(client, bufnr)
+--      if client.supports_method("textDocument/formatting") then
+--          vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+--          vim.api.nvim_create_autocmd("BufWritePre", {
+--              group = augroup,
+--              buffer = bufnr,
+--              callback = function()
+--                  -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+--                  vim.lsp.buf.formatting_sync()
+--              end,
+--          })
+--      end
+--  end,
+--})
+
+EOF
