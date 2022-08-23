@@ -7,6 +7,7 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'nvim-telescope/telescope-media-files.nvim'
+  "Plug 'glepnir/dashboard-nvim'
 
   " --- Motion ---
   Plug 'romainl/vim-cool' "disables search highlighting when you are done searching
@@ -23,7 +24,8 @@ call plug#begin(stdpath('data') . '/plugged')
 
   " --- Git ---
   Plug 'tpope/vim-fugitive'
-  Plug 'airblade/vim-gitgutter'
+  "Plug 'airblade/vim-gitgutter'
+  Plug 'lewis6991/gitsigns.nvim'
   
   " --- LSP ---
   Plug 'neovim/nvim-lspconfig' "Collection of configurations for built-in LSP client
@@ -162,6 +164,12 @@ nmap <silent> <RIGHT><RIGHT>  :cnfile<CR><C-G>
 nmap <silent> <LEFT>          :cprev<CR>
 nmap <silent> <LEFT><LEFT>    :cpfile<CR><C-G>
 
+"Go to index of notes and set working directory to my notes
+nnoremap <leader>kb :e $KNOWLEDGE_BASE_DIR/index.md<CR>:cd $KNOWLEDGE_BASE_DIR<CR>
+nnoremap <leader>dn <cmd>lua require'dailynotes'.open_window()<cr>
+
+nnoremap <leader>rl :sourse %<cr>
+
 " }}}
 
 " ------------- 🎛️  AUTOCOMMANS ------------- {{{
@@ -234,12 +242,6 @@ autocmd FileType html,pug,css,scss,typescriptreact,vue,markdown.mdx EmmetInstall
 "imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 "let g:copilot_no_tab_map = v:true
 
-lua << EOF
-
-vim.notify = require("notify")
-
-EOF
-
 lua require('physicist')
 let g:gitgutter_sign_added = ''
 let g:gitgutter_sign_modified = ''
@@ -247,17 +249,9 @@ let g:gitgutter_sign_removed = ''
 
 let @q = "Iconsole.log(\<Esc>A)\<Esc>"
 
-"Go to index of notes and set working directory to my notes
-nnoremap <leader>kb :e $KNOWLEDGE_BASE_DIR/index.md<CR>:cd $KNOWLEDGE_BASE_DIR<CR>
-
-nnoremap <leader>rl :sourse %<cr>
-
 "highlight Normal guibg=none
 "highlight NonText guibg=none
 
-nnoremap <leader>dn <cmd>lua require'dailynotes'.open_window()<cr>
-
-lua require'colorizer'.setup()
 let g:mkdp_theme = 'light'
 
 let g:neoformat_javascript_prettier = {
