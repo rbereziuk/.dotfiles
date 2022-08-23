@@ -41,9 +41,8 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'nvim-treesitter/nvim-treesitter-textobjects'
   Plug 'nvim-treesitter/nvim-treesitter-context'
 
-  " For vsnip users.
-  Plug 'hrsh7th/cmp-vsnip'
-  Plug 'hrsh7th/vim-vsnip'
+  Plug 'L3MON4D3/LuaSnip'
+  Plug 'saadparwaiz1/cmp_luasnip'
 
   " --- Interface ---
   Plug 'mhinz/vim-startify'
@@ -231,15 +230,6 @@ autocmd FileType html,pug,css,scss,typescriptreact,vue,markdown.mdx imap <silent
   let g:user_emmet_complete_tag = 0
   let g:user_emmet_install_global = 0
 autocmd FileType html,pug,css,scss,typescriptreact,vue,markdown.mdx EmmetInstall
-
-" Expand
-"imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
-"smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
-
-" Expand or jump
-" Expand or jump
-imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
-smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
 
 "imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 "let g:copilot_no_tab_map = v:true
