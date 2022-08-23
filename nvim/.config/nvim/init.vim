@@ -82,6 +82,7 @@ call plug#begin(stdpath('data') . '/plugged')
 
   Plug 'godlygeek/tabular'
   Plug 'preservim/vim-markdown'
+  Plug 'folke/zen-mode.nvim'
   "Plug 'vim-pandoc/vim-pandoc'
   "Plug 'vim-pandoc/vim-pandoc-syntax'
   "Plug 'khzaw/vim-conceal'

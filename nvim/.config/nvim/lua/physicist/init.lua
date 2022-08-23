@@ -5,6 +5,7 @@ require('physicist/diagnostics')
 require('physicist/lualine')
 --require('physicist/telekasten')
 require('physicist.global')
+--require('physicist/zen-mode')
 
 -- Plugins
 require'hop'.setup()
