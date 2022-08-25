@@ -183,17 +183,17 @@ augroup noting
   autocmd FileType markdown set linebreak
 augroup END
 
+"augroup atom_words
+"  autocmd!
+"  autocmd FileType css set iskeyword+=-,__
+"augroup END
+
 "highlight yanked text
 augroup highlight_yank
     autocmd!
     au TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=300}
 augroup END
 
-"Neoformat
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * undojoin|Neoformat prettier
-augroup END
 
 "Terminal
 augroup neovim_terminal
@@ -233,11 +233,11 @@ endfunction
 " let g:user_emmet_expandabbr_key='<Tab>'
 " imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
-autocmd FileType html,pug,css,scss,typescriptreact,vue,markdown.mdx imap <silent><buffer><expr><tab> <sid>expand_html_tab()
-  let g:user_emmet_mode='a'
-  let g:user_emmet_complete_tag = 0
-  let g:user_emmet_install_global = 0
-autocmd FileType html,pug,css,scss,typescriptreact,vue,markdown.mdx EmmetInstall
+"autocmd FileType html,pug,css,scss,typescriptreact,vue,markdown.mdx imap <silent><buffer><expr><tab> <sid>expand_html_tab()
+"  let g:user_emmet_mode='a'
+"  let g:user_emmet_complete_tag = 0
+"  let g:user_emmet_install_global = 0
+"autocmd FileType html,pug,css,scss,typescriptreact,vue,markdown.mdx EmmetInstall
 
 "imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 "let g:copilot_no_tab_map = v:true
@@ -253,12 +253,6 @@ let @q = "Iconsole.log(\<Esc>A)\<Esc>"
 "highlight NonText guibg=none
 
 let g:mkdp_theme = 'light'
-
-let g:neoformat_javascript_prettier = {
-  \ 'exe': './node_modules/.bin/prettier',
-  \ 'args': ['--write', '--config .prettierrc.json'],
-  \ 'replace': 1
-  \ }
 
 lua << EOF
 
