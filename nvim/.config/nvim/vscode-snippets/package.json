@@ -13,7 +13,19 @@
       },
       {
         "language": "javascript",
-        "path": "./snippets/javascript.json"
+        "path": "./snippets/javascript/javascript.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./snippets/javascript/react-native.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/javascript/react-native-ts.json"
+      },
+      {
+        "language": "lua",
+        "path": "./snippets/lua.json"
       }
     ]
   }

@@ -1,0 +1,14 @@
+{
+  "require": {
+    "prefix": "rq",
+    "body": "const ${1:value} = require('${2:module}');${0}"
+  },
+  "createElement": {
+    "prefix": "cel",
+    "body": "const ${1:el} = ${2:document}.createElement('${3:elem}');${0}"
+  },
+  "Node callback": {
+    "prefix": "cb",
+    "body": "function (err, ${1:value}) {\n\tif (err) throw err\n\t${0}\n}"
+  }
+}
