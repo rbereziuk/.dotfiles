@@ -5,6 +5,8 @@ require('physicist/diagnostics')
 require('physicist/lualine')
 require('physicist/luasnip')
 require('physicist.global')
+require('physicist.reach')
+
 --require('physicist/zen-mode')
 --require('physicist/telekasten')
 

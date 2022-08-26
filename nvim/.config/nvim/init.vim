@@ -77,7 +77,7 @@ call plug#begin(stdpath('data') . '/plugged')
   " --- TESTING ---
   "Plug 'github/copilot.vim'  
   "Plug 'nvim-orgmode/orgmode'
-  "Plug 'toppair/reach.nvim'
+  Plug 'toppair/reach.nvim'
   Plug '/home/roman/Lab/stackmap.nvim/'
   Plug '/home/roman/Lab/nvim-plugins/dailynotes.nvim/'
 
