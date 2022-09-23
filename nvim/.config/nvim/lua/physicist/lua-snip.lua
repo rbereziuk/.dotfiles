@@ -1,5 +1,6 @@
 local ls = require('luasnip')
 
+require('luasnip.loaders.from_lua').load({ paths = '~/.config/nvim/snippets/' })
 require("luasnip.loaders.from_vscode").load({paths = "~/.config/nvim/vscode-snippets"})
 
 ls.config.set_config({
@@ -36,4 +37,5 @@ vim.keymap.set({ "i" , "s" }, "<c-j>", function()
     ls.jump(-1)
   end
 end, { silent = true})
+
 

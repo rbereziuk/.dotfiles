@@ -30,8 +30,15 @@ cmp.setup({
     { name = "nvim_lsp" },
     { name = "luasnip" },
     { name = "buffer" },
-    { name = 'nvim_lua' }
+    { name = 'nvim_lua' },
+    { name = 'nvim_lsp_signature_help' }
   },
+  --sources = cmp.config.sources({
+  --  { name = 'nvim_lsp' },
+  --  { name = 'luasnip' },
+  --}, {
+  --  { name = 'buffer' },
+  --}),
   window = {
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),

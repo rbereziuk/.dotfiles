@@ -12,8 +12,12 @@
         "path": "./snippets/global.json"
       },
       {
-        "language": "javascript",
+        "language": ["javascript", "javascriptreact"],
         "path": "./snippets/javascript/javascript.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./snippets/javascript/react.json"
       },
       {
         "language": "javascriptreact",
