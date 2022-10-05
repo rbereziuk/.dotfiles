@@ -13,7 +13,11 @@ require('physicist.reach')
 -- Plugins
 require'hop'.setup()
 require'nvim-tree'.setup({
-  update_cwd = true
+  update_cwd = true,
+  filters = {
+    custom = { '^.git$' },
+    exclude = { 'node_modules' },
+  }
 })
 require("bufferline").setup{}
 require('Comment').setup()
