@@ -2,8 +2,8 @@
 # export PATH="$HOME/bin:$PATH";
 
 # set vim default editor
-#export VISUAL=nvim
-#export EDITOR="$VISUAL"
+export VISUAL=nvim
+export EDITOR="$VISUAL"
 
 # FZF
 # Setting fd as the default source for fzf
