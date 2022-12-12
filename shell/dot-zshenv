@@ -19,4 +19,3 @@ export NVM_DIR="$HOME/.nvm"
 
 #export MANPAGER="vim -M +MANPAGER -"
 export MANPAGER="nvim +Man!"
-export KNOWLEDGE_BASE_DIR=/home/roman/Documents/Knowledge-base/
