@@ -41,9 +41,10 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
   Plug 'nvim-treesitter/playground'
   Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-  Plug 'nvim-treesitter/nvim-treesitter-context'
+  "Plug 'nvim-treesitter/nvim-treesitter-context'
 
-  Plug 'L3MON4D3/LuaSnip'
+  " Snippets
+  Plug 'L3MON4D3/LuaSnip', {'tag': 'v1.1.0'}
   Plug 'saadparwaiz1/cmp_luasnip'
 
   " --- Interface ---
@@ -57,11 +58,16 @@ call plug#begin(stdpath('data') . '/plugged')
 
   " --- Colorscheme ---
   Plug 'gruvbox-community/gruvbox'
-  Plug 'haishanh/night-owl.vim'
   Plug 'Shatur/neovim-ayu'
   Plug 'sainnhe/sonokai'
   Plug 'EdenEast/nightfox.nvim'
   Plug 'rebelot/kanagawa.nvim'
+  Plug 'bluz71/vim-nightfly-guicolors'
+  Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+  Plug 'bluz71/vim-nightfly-guicolors'
+  Plug 'catppuccin/nvim', {'as': 'catppuccin'}
+  Plug 'sam4llis/nvim-tundra'
+
 
   " --- Icons ---
   Plug 'ryanoasis/vim-devicons'
@@ -77,9 +83,12 @@ call plug#begin(stdpath('data') . '/plugged')
   " --- TESTING ---
   "Plug 'github/copilot.vim'  
   "Plug 'nvim-orgmode/orgmode'
+  Plug 'rafamadriz/friendly-snippets'
   Plug 'toppair/reach.nvim'
   Plug '/home/roman/Lab/stackmap.nvim/'
   Plug '/home/roman/Lab/nvim-plugins/dailynotes.nvim/'
+  Plug 'ray-x/lsp_signature.nvim'
+  Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 
   Plug 'godlygeek/tabular'
   Plug 'preservim/vim-markdown'
@@ -97,7 +106,8 @@ call plug#end()
 syntax on
 set background=dark
 let g:gruvbox_contrast_dark = 'hard'
-colorscheme gruvbox
+"colorscheme ayu-mirage
+colorscheme tokyonight-night
 "set t_Co=256 "For lightline plugin force 256 terminal colors
 highlight Comment cterm=italic gui=italic
 
@@ -124,9 +134,6 @@ set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 set foldnestmax=3
 set foldlevel=1
-"set nofoldenable
-"set foldcolumn=1 "defines 1 col at window left, to indicate folding  
-"let javaScript_fold=1 "activate folding by JS syntax  
 set foldlevelstart=99 "start file with all folds opened
 
 " }}}
@@ -194,7 +201,6 @@ augroup highlight_yank
     au TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=300}
 augroup END
 
-
 "Terminal
 augroup neovim_terminal
   autocmd!
@@ -207,6 +213,12 @@ augroup END
 augroup wikilinks
   autocmd!
   au BufRead,BufNewFile */Knowledge-base/** set suffixesadd=.md
+augroup END
+
+augroup react_learning
+  autocmd!
+  autocmd BufRead,BufNewFile ~/Lab/fem/epic-react/react-hooks/src/exercise/** setlocal filetype=javascriptreact
+  autocmd BufRead,BufNewFile ~/Lab/fem/epic-react/advanced-react-hooks/src/exercise/** setlocal filetype=javascriptreact
 augroup END
 
 " }}}
@@ -230,14 +242,15 @@ function! s:expand_html_tab()
   "return a regular tab character
   return "\<tab>"
 endfunction
-" let g:user_emmet_expandabbr_key='<Tab>'
-" imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
-"autocmd FileType html,pug,css,scss,typescriptreact,vue,markdown.mdx imap <silent><buffer><expr><tab> <sid>expand_html_tab()
-"  let g:user_emmet_mode='a'
-"  let g:user_emmet_complete_tag = 0
-"  let g:user_emmet_install_global = 0
-"autocmd FileType html,pug,css,scss,typescriptreact,vue,markdown.mdx EmmetInstall
+"let g:user_emmet_expandabbr_key='<Tab>'
+"imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+
+autocmd FileType html,pug,css,scss,javascriptreact,typescriptreact,vue,markdown.mdx imap <silent><buffer><expr><tab> <sid>expand_html_tab()
+  let g:user_emmet_mode='a'
+  let g:user_emmet_complete_tag = 0
+  let g:user_emmet_install_global = 0
+autocmd FileType html,pug,css,scss,javascriptreact,typescriptreact,vue,markdown.mdx EmmetInstall
 
 "imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 "let g:copilot_no_tab_map = v:true
@@ -280,3 +293,4 @@ lua << EOF
 --})
 
 EOF
+
