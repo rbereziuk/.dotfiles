@@ -24,4 +24,3 @@ let g:ascii = [
 
 "let g:startify_custom_header = g:ascii + startify#fortune#boxed()
 let g:startify_custom_header = startify#center(g:ascii) + startify#center(startify#fortune#boxed())
-

@@ -1,5 +1,5 @@
- {
-  "name": "my-custom-snippets",
+{
+  "name": "physicist-snippets",
   "engines": {
     "vscode": "^1.11.0"
   },
