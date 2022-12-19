@@ -1,6 +1,6 @@
 {
   "useState": {
-    "prefix": "us",
+    "prefix": "us1",
     "body": "const [${1:setterName}, set${1:setterName}] = useState(${2:defVal})$0",
     "description": "React useState() hook"
   },

@@ -1,6 +1,9 @@
 -- load snippets from path/of/your/nvim/config/my-cool-snippets
 require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./vscode-snippets" } })
 
+---require('luasnip.loaders.from_lua').lazy_load({ paths = '~/.config/nvim/snippets/' })
+require('luasnip.loaders.from_lua').lazy_load({ paths = './snippets' })
+
 local ls = require('luasnip')
 
 -- This will expand the current item or jump to the next item wihin the snippet
