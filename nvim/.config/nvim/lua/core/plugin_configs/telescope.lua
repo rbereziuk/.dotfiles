@@ -1,6 +1,8 @@
 -- Settings from doc
 require'telescope'.setup {
   defaults = {
+    prompt_prefix = '🔭 ',
+    selection_caret = ' ',
     layout_config = {
       prompt_position = "top"
     },

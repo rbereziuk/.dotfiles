@@ -11,7 +11,7 @@ end
 
 local packer_bootstrap = ensure_packer()
 
-return require('packer').startup(function(use)
+return require('packer').startup({function(use)
   use 'wbthomason/packer.nvim'
   use 'mhinz/vim-startify'
   use 'folke/tokyonight.nvim'
@@ -53,15 +53,15 @@ return require('packer').startup(function(use)
   use 'saadparwaiz1/cmp_luasnip'
   use 'onsails/lspkind.nvim'
   use({
-    "glepnir/lspsaga.nvim",
+    'glepnir/lspsaga.nvim',
     branch = "main"
   })
 
   use {
-    "windwp/nvim-autopairs",
+    'windwp/nvim-autopairs',
       config = function() require("nvim-autopairs").setup {} end
   }
-  use "windwp/nvim-ts-autotag"
+  use 'windwp/nvim-ts-autotag'
 
 
   use 'NvChad/nvim-colorizer.lua'
@@ -69,9 +69,24 @@ return require('packer').startup(function(use)
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'MunifTanjim/prettier.nvim'
 
+  use {
+    'lewis6991/gitsigns.nvim',
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
     require('packer').sync()
   end
-end)
+end,
+config = {
+  display = {
+    open_fn = require('packer.util').float,
+    working_sym = ' ',
+    error_sym = ' ',
+    done_sym = ' ',
+    removed_sym = ' ',
+    moved_sym = ' ',
+  }
+}
+})
