@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "/home/roman/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/home/roman/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
   ["lspkind.nvim"] = {
     loaded = true,
     path = "/home/roman/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
@@ -123,11 +128,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/roman/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
-  },
-  neoformat = {
-    loaded = true,
-    path = "/home/roman/.local/share/nvim/site/pack/packer/start/neoformat",
-    url = "https://github.com/sbdchd/neoformat"
   },
   ["null-ls.nvim"] = {
     loaded = true,

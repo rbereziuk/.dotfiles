@@ -14,4 +14,6 @@ require('core.plugin_configs.null-ls')
 require('core.plugin_configs.prettier')
 
 require('core.plugin_configs.luasnip')
+require('core.plugin_configs.git')
+
 
