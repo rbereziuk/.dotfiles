@@ -14,7 +14,10 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup({function(use)
   use 'wbthomason/packer.nvim'
   use 'mhinz/vim-startify'
+
   use 'folke/tokyonight.nvim'
+  use 'rose-pine/neovim'
+  use 'rebelot/kanagawa.nvim'
 
   use {
     'nvim-tree/nvim-tree.lua',
@@ -42,6 +45,8 @@ return require('packer').startup({function(use)
 
   use 'nvim-treesitter/nvim-treesitter'
 
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
+
   -- LSP
   use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
   use 'hrsh7th/cmp-nvim-lsp'
@@ -49,17 +54,17 @@ return require('packer').startup({function(use)
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
-  use({"L3MON4D3/LuaSnip", tag = "v1.*"})
+  use({'L3MON4D3/LuaSnip', tag = 'v1.*'})
   use 'saadparwaiz1/cmp_luasnip'
   use 'onsails/lspkind.nvim'
   use({
     'glepnir/lspsaga.nvim',
-    branch = "main"
+    branch = 'main'
   })
 
   use {
     'windwp/nvim-autopairs',
-      config = function() require("nvim-autopairs").setup {} end
+      config = function() require('nvim-autopairs').setup {} end
   }
   use 'windwp/nvim-ts-autotag'
 
@@ -73,6 +78,18 @@ return require('packer').startup({function(use)
     'lewis6991/gitsigns.nvim',
   }
 
+  use 'tpope/vim-surround'
+
+  use {
+    'folke/zen-mode.nvim',
+    config = function()
+      require("zen-mode").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
