@@ -80,6 +80,8 @@ return require('packer').startup({function(use)
 
   use 'tpope/vim-surround'
 
+  use 'christoomey/vim-tmux-navigator'
+
   use {
     'folke/zen-mode.nvim',
     config = function()
