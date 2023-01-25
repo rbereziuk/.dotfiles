@@ -24,7 +24,7 @@ local us = s('us', {
   d(2, function(arg, _)
     return sn(1, i(1, 'set' .. arg[1][1]:sub(1,1):upper()..arg[1][1]:sub(2)))
   end, 1),
-  t('] = React.useState('),
+  t('] = useState('),
   i(3, ''),
   t(')'),
 })

@@ -28,5 +28,26 @@
       "}"
     ],
     "description": "Switch Statement"
+  },
+  "import": {
+    "prefix": "im",
+    "body": "import { $2 } from '${1:package or file}';$0",
+    "description": "Basic js import"
+  },
+  "default import": {
+    "prefix": "imd",
+    "body": [
+      "import $2 from '${1:package or file}';",
+      "$0"
+    ],
+    "description": "Basic dafault js import"
+  },
+  "import witn new line": {
+    "prefix": "imln",
+    "body": [
+      "import $2 from '${1:package or file}';",
+      "$0"
+    ],
+    "description": "Basic js import with new line"
   }
 }
