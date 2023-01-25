@@ -4,9 +4,9 @@ require'telescope'.setup {
     prompt_prefix = '🔭 ',
     selection_caret = ' ',
     layout_config = {
-      prompt_position = "top"
+      prompt_position = 'top'
     },
-    sorting_strategy = "ascending"
+    sorting_strategy = 'ascending'
   }
 }
 
@@ -18,6 +18,10 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
 -- Custom settings
 vim.keymap.set('n', '<leader>ec', function()
-  builtin.git_files({ cwd = "~/.dotfiles/" })
+  builtin.git_files({ cwd = '~/.dotfiles/' })
+end)
+
+vim.keymap.set('n', '<leader>fkb', function ()
+  builtin.find_files({ cwd = '~/Documents/Knowledge-base/' })
 end)
 
