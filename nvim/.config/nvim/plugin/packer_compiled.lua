@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/roman/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["auto-hlsearch.nvim"] = {
+    loaded = true,
+    path = "/home/roman/.local/share/nvim/site/pack/packer/start/auto-hlsearch.nvim",
+    url = "https://github.com/asiryk/auto-hlsearch.nvim"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/home/roman/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
@@ -118,6 +123,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/roman/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
     url = "https://github.com/rebelot/kanagawa.nvim"
+  },
+  ["lsp_signature.nvim"] = {
+    loaded = true,
+    path = "/home/roman/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
+    url = "https://github.com/ray-x/lsp_signature.nvim"
   },
   ["lspkind.nvim"] = {
     loaded = true,

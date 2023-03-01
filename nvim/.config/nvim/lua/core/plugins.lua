@@ -82,6 +82,10 @@ return require('packer').startup({function(use)
 
   use 'christoomey/vim-tmux-navigator'
 
+  use({ "asiryk/auto-hlsearch.nvim", tag = "1.0.0" })
+
+  use 'ray-x/lsp_signature.nvim'
+
   use {
     'folke/zen-mode.nvim',
     config = function()
