@@ -16,4 +16,6 @@ require('core.plugin_configs.prettier')
 require('core.plugin_configs.luasnip')
 require('core.plugin_configs.git')
 
+require('core.plugin_configs.others')
+
 

@@ -4,8 +4,3 @@ require('core.plugins')
 require('core.plugin_configs')
 require('core.autocmd')
 
-
--- temp
-require("auto-hlsearch").setup()
-
-require "lsp_signature".setup()
