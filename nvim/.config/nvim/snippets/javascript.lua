@@ -29,6 +29,23 @@ local us = s('us', {
   t(')'),
 })
 
+local rq = s('rq', {
+  t('const '),
+  i(1, 'module'),
+  t(' = require(\''),
+  d(2, function(args)
+    -- the returned snippetNode doesn't need a position; it's inserted
+    -- "inside" the dynamicNode.
+    return sn(nil, {
+      -- jump-indices are local to each snippetNode, so restart at 1.
+      i(1, args[1])
+    })
+  end,
+	{1}),
+  t('\')')
+})
+
 table.insert(snippets, us)
+table.insert(snippets, rq)
 
 return snippets, autosnippets

@@ -1,7 +1,10 @@
 {
   "require": {
-    "prefix": "rq",
-    "body": "const ${1:value} = require('${2:module}');${0}"
+    "prefix": "rq1",
+    "body": [
+      "const ${1:module} = require('${2:$1}')"
+    ],
+    "description": "Require module for Node.js"
   },
   "createElement": {
     "prefix": "cel",
