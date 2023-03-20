@@ -1,4 +1,4 @@
-require('core.plugin_configs.nvim-tree')
+require('core.plugin_configs.file-explorer')
 require('core.plugin_configs.lualine')
 require('core.plugin_configs.bufferline')
 require('core.plugin_configs.telescope')
