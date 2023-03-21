@@ -89,6 +89,13 @@ return require('packer').startup({function(use)
   use 'ray-x/lsp_signature.nvim'
 
   use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+  }
+
+  use {
     'folke/zen-mode.nvim',
     config = function()
       require("zen-mode").setup {
