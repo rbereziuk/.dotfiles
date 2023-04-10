@@ -53,6 +53,8 @@ require'lspconfig'.lua_ls.setup{
   }
 }
 
+local lspconfig = require('lspconfig')
+lspconfig.pyright.setup {}
 require'lspconfig'.gopls.setup{}
 
 require'lspconfig'.tailwindcss.setup{}
