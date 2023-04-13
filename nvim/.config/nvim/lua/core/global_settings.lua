@@ -17,4 +17,3 @@ vim.opt.hidden = true     -- allow change edited buffer
 vim.opt.mouse = 'a'       -- enable all mouse actions
 vim.opt.signcolumn = 'yes:1'
 
-vim.cmd[[colorscheme tokyonight-night]]

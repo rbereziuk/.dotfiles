@@ -1,3 +1,4 @@
+require('core.plugin_configs.colorscheme')
 require('core.plugin_configs.file-explorer')
 require('core.plugin_configs.lualine')
 require('core.plugin_configs.bufferline')
