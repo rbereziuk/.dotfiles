@@ -49,6 +49,13 @@ return require('packer').startup({function(use)
 
   use 'nvim-treesitter/nvim-treesitter-textobjects'
 
+  use {
+    'williamboman/mason.nvim',
+    run = ":MasonUpdate" -- :MasonUpdate updates registry contents
+  }
+
+  use "williamboman/mason-lspconfig.nvim"
+
   -- LSP
   use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
   use 'hrsh7th/cmp-nvim-lsp'
@@ -59,9 +66,20 @@ return require('packer').startup({function(use)
   use({'L3MON4D3/LuaSnip', tag = 'v1.*'})
   use 'saadparwaiz1/cmp_luasnip'
   use 'onsails/lspkind.nvim'
+
   use({
-    'glepnir/lspsaga.nvim',
-    branch = 'main'
+    "glepnir/lspsaga.nvim",
+    opt = true,
+    branch = "main",
+    event = "LspAttach",
+    config = function()
+      require("lspsaga").setup({})
+    end,
+    requires = {
+      {"nvim-tree/nvim-web-devicons"},
+      --Please make sure you install markdown and markdown_inline parser
+      {"nvim-treesitter/nvim-treesitter"}
+    }
   })
 
   use {

@@ -1,9 +1,4 @@
-local saga = require("lspsaga")
-
 local keymap = vim.keymap.set
-
---saga.init_lsp_saga()
-saga.setup({})
 
 -- Lsp finder find the symbol definition implement reference
 -- if there is no implement it will hide
@@ -28,4 +23,5 @@ keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
 keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
 
 -- Hover Doc
-keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
+--keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>")
+keymap("n", "K", "<cmd>Lspsaga hover_doc ++quiet<CR>")

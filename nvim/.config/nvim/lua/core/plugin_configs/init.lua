@@ -4,6 +4,7 @@ require('core.plugin_configs.bufferline')
 require('core.plugin_configs.telescope')
 require('core.plugin_configs.treesitter')
 
+require('core.plugin_configs.mason')
 require('core.plugin_configs.lsp')
 require('core.plugin_configs.complition')
 require('core.plugin_configs.lspsaga')
