@@ -21,6 +21,7 @@ require("lazy").setup({
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
+    name = 'Neotree',
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
@@ -28,12 +29,14 @@ require("lazy").setup({
     }
   },
   {
-    'akinsho/bufferline.nvim', 
-    version = "v3.*", 
+    'akinsho/bufferline.nvim',
+    name = 'Bufferline',
+    version = "v3.*",
     dependencies = 'nvim-tree/nvim-web-devicons'
   },
   {
     'nvim-lualine/lualine.nvim',
+    name = 'lualine',
     dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true }
   },
 
@@ -42,12 +45,13 @@ require("lazy").setup({
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
 
-  {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
+  {'nvim-treesitter/nvim-treesitter', name = 'Treesitter', build = ':TSUpdate'},
   'nvim-treesitter/nvim-treesitter-textobjects',
 
   'lewis6991/gitsigns.nvim',
   {
     'windwp/nvim-autopairs',
+    name = 'autopairs',
       config = function() require('nvim-autopairs').setup {} end
   },
 
@@ -57,8 +61,10 @@ require("lazy").setup({
   },
   "williamboman/mason-lspconfig.nvim",
 
+  --{'folke/neodev.nvim', config = function() require('neodev').setup({}) end},
+
   -- Configurations for LSP
-  'neovim/nvim-lspconfig', 
+  'neovim/nvim-lspconfig',
   'hrsh7th/cmp-nvim-lsp',
   'hrsh7th/cmp-buffer',
   'hrsh7th/cmp-path',
@@ -75,6 +81,7 @@ require("lazy").setup({
   'onsails/lspkind.nvim',
   {
     "glepnir/lspsaga.nvim",
+    name = 'lspsaga',
     event = "LspAttach",
     config = function()
         require("lspsaga").setup({})
@@ -85,7 +92,7 @@ require("lazy").setup({
       {"nvim-treesitter/nvim-treesitter"}
     }
   },
-  'ray-x/lsp_signature.nvim',
+  {'ray-x/lsp_signature.nvim' },
   'jose-elias-alvarez/null-ls.nvim',
 
   -- Other
@@ -99,6 +106,7 @@ require("lazy").setup({
   },
   {
     'folke/zen-mode.nvim',
+    name = 'zen-mode',
     config = function()
       require("zen-mode").setup {
         -- your configuration comes here
@@ -107,15 +115,39 @@ require("lazy").setup({
       }
     end
   },
-  { "asiryk/auto-hlsearch.nvim", tag = "1.0.0" },
+  {
+    'folke/which-key.nvim',
+    config = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+      require('which-key').setup({
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      })
+    end,
+  },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = "nvim-lua/plenary.nvim",
+    config = function()
+      require("todo-comments").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  },
+  'rcarriga/nvim-notify',
+  { 'asiryk/auto-hlsearch.nvim', tag = '1.0.0' },
   -- 'windwp/nvim-ts-autotag'
   -- 'NvChad/nvim-colorizer.lua'
   -- 'MunifTanjim/prettier.nvim'
-  -- {
-  --   'akinsho/toggleterm.nvim', 
-  --   tag = '*', 
-  --   config = function()
-  --     require("toggleterm").setup()
-  --   end
-  -- }
+  {
+    'akinsho/toggleterm.nvim',
+    version = '*',
+    config = function()
+      require("toggleterm").setup()
+    end
+  }
 })
