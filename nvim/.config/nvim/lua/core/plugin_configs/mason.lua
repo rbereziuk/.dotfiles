@@ -5,5 +5,5 @@ require("mason").setup({
 })
 
 require('mason-lspconfig').setup {
-  ensure_installed = { 'tsserver', 'tailwindcss' },
+  ensure_installed = { 'tsserver', 'emmet_ls', 'tailwindcss' },
 }
