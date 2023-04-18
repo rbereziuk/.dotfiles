@@ -17,7 +17,7 @@ require('core.plugin_configs.null-ls')
 
 require('core.plugin_configs.luasnip')
 require('core.plugin_configs.git')
--- require('core.plugin_configs.terminal')
+require('core.plugin_configs.terminal')
 
 require('core.plugin_configs.others')
 

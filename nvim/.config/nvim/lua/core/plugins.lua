@@ -61,7 +61,7 @@ require("lazy").setup({
   },
   "williamboman/mason-lspconfig.nvim",
 
-  --{'folke/neodev.nvim', config = function() require('neodev').setup({}) end},
+  {'folke/neodev.nvim', config = function() require('neodev').setup({}) end},
 
   -- Configurations for LSP
   'neovim/nvim-lspconfig',
@@ -128,10 +128,10 @@ require("lazy").setup({
     end,
   },
   {
-    "folke/todo-comments.nvim",
-    dependencies = "nvim-lua/plenary.nvim",
+    'folke/todo-comments.nvim',
+    dependencies = 'nvim-lua/plenary.nvim',
     config = function()
-      require("todo-comments").setup {
+      require('todo-comments').setup {
         -- your configuration comes here
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
@@ -149,5 +149,21 @@ require("lazy").setup({
     config = function()
       require("toggleterm").setup()
     end
+  },
+  {
+    'folke/noice.nvim',
+    config = function()
+      require('noice').setup({
+          -- add any options here
+      })
+    end,
+    requires = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      'MunifTanjim/nui.nvim',
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      'rcarriga/nvim-notify',
+      }
   }
 })
