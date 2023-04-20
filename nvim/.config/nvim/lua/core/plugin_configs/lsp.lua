@@ -37,6 +37,12 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
 require('lspconfig')['tsserver'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
@@ -56,5 +62,6 @@ require'lspconfig'.lua_ls.setup{
 local lspconfig = require('lspconfig')
 lspconfig.pyright.setup {}
 require'lspconfig'.gopls.setup{}
+require'lspconfig'.html.setup{}
 require'lspconfig'.emmet_ls.setup{}
 require'lspconfig'.tailwindcss.setup{}
