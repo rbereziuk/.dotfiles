@@ -1,3 +1,5 @@
+if !exists('g:vscode')
+
 let g:startify_change_to_vcs_root = 1
 let g:startify_change_cmd = 'cd'
 
@@ -24,3 +26,5 @@ let g:ascii = [
 
 "let g:startify_custom_header = g:ascii + startify#fortune#boxed()
 let g:startify_custom_header = startify#center(g:ascii) + startify#center(startify#fortune#boxed())
+
+endif
