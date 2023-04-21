@@ -155,7 +155,22 @@ local plugins = {
     'folke/noice.nvim',
     config = function()
       require('noice').setup({
-          -- add any options here
+        presets = {
+          command_palette = true, -- position the cmdline and popupmenu together
+          bottom_search = true, -- use a classic bottom cmdline for search
+        },
+        lsp = {
+          -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+          override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true,
+          },
+          -- blocks lspsaga keymapping
+          progress = {
+            enabled = false,
+          }
+        }
       })
     end,
     dependencies = {
@@ -165,8 +180,8 @@ local plugins = {
       --   `nvim-notify` is only needed, if you want to use the notification view.
       --   If not available, we use `mini` as the fallback
       'rcarriga/nvim-notify',
-      }
-  }
+    }
+  },
 }
 
 require("lazy").setup(plugins, {
