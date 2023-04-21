@@ -12,9 +12,10 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
+local plugins = {
   'mhinz/vim-startify',
   'folke/tokyonight.nvim',
+  'catppuccin/nvim',
   'rose-pine/neovim',
   'rebelot/kanagawa.nvim',
 
@@ -157,7 +158,7 @@ require("lazy").setup({
           -- add any options here
       })
     end,
-    requires = {
+    dependencies = {
       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
       'MunifTanjim/nui.nvim',
       -- OPTIONAL:
@@ -165,5 +166,11 @@ require("lazy").setup({
       --   If not available, we use `mini` as the fallback
       'rcarriga/nvim-notify',
       }
+  }
+}
+
+require("lazy").setup(plugins, {
+  ui = {
+    border = 'rounded'
   }
 })
