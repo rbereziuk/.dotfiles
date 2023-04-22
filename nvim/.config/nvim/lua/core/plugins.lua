@@ -13,26 +13,26 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-  'mhinz/vim-startify',
-  'folke/tokyonight.nvim',
-  'catppuccin/nvim',
-  'rose-pine/neovim',
-  'rebelot/kanagawa.nvim',
+  {'mhinz/vim-startify', name = 'Startify'},
+  {'folke/tokyonight.nvim', name = 'TokyoNight colorscheme'},
+  {'catppuccin/nvim', name = 'Catppuccin colorscheme'},
+  {'rose-pine/neovim', name = 'Rose-pine colorscheme'},
+  {'rebelot/kanagawa.nvim', name = 'Kanagawa colorscheme'},
 
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
+    'nvim-neo-tree/neo-tree.nvim',
+    branch = 'v2.x',
     name = 'Neotree',
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
+      'MunifTanjim/nui.nvim',
     }
   },
   {
     'akinsho/bufferline.nvim',
     name = 'Bufferline',
-    version = "v3.*",
+    version = 'v3.*',
     dependencies = 'nvim-tree/nvim-web-devicons'
   },
   {
@@ -43,6 +43,7 @@ local plugins = {
 
   {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    name = 'Telescope',
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
 
@@ -58,6 +59,7 @@ local plugins = {
 
   {
     "williamboman/mason.nvim",
+    name = 'Mason',
     build = ":MasonUpdate" -- :MasonUpdate updates registry contents
   },
   "williamboman/mason-lspconfig.nvim",
@@ -101,6 +103,7 @@ local plugins = {
   'christoomey/vim-tmux-navigator',
   {
     'numToStr/Comment.nvim',
+    name = 'Comment',
     config = function()
         require('Comment').setup()
     end
@@ -118,6 +121,7 @@ local plugins = {
   },
   {
     'folke/which-key.nvim',
+    name = 'Which-key',
     config = function()
       vim.o.timeout = true
       vim.o.timeoutlen = 300
@@ -130,6 +134,7 @@ local plugins = {
   },
   {
     'folke/todo-comments.nvim',
+    name = 'Todo-comments',
     dependencies = 'nvim-lua/plenary.nvim',
     config = function()
       require('todo-comments').setup {
@@ -146,6 +151,7 @@ local plugins = {
   -- 'MunifTanjim/prettier.nvim'
   {
     'akinsho/toggleterm.nvim',
+    name = 'ToggleTerm',
     version = '*',
     config = function()
       require("toggleterm").setup()
@@ -153,6 +159,7 @@ local plugins = {
   },
   {
     'folke/noice.nvim',
+    name = 'Noice',
     config = function()
       require('noice').setup({
         presets = {
