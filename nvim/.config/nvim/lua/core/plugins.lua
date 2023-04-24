@@ -92,7 +92,7 @@ local plugins = {
     dependencies = {
       {"nvim-tree/nvim-web-devicons"},
       --Please make sure you install markdown and markdown_inline parser
-      {"nvim-treesitter/nvim-treesitter"}
+      {'nvim-treesitter/nvim-treesitter', name = 'Treesitter'}
     }
   },
   {'ray-x/lsp_signature.nvim' },
