@@ -19,6 +19,9 @@ alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
 
+# nnn
+alias nnn='nnn -e' # open files in terminal
+
 # Git
 alias gs='git status '
 alias gss='git status -s'
