@@ -189,6 +189,7 @@ local plugins = {
       'rcarriga/nvim-notify',
     }
   },
+  'wakatime/vim-wakatime'
 }
 
 require("lazy").setup(plugins, {
