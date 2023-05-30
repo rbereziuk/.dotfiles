@@ -189,7 +189,8 @@ local plugins = {
       'rcarriga/nvim-notify',
     }
   },
-  'wakatime/vim-wakatime'
+  'wakatime/vim-wakatime',
+  'lukas-reineke/indent-blankline.nvim'
 }
 
 require("lazy").setup(plugins, {
