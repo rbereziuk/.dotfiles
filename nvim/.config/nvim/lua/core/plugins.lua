@@ -190,7 +190,15 @@ local plugins = {
     }
   },
   'wakatime/vim-wakatime',
-  'lukas-reineke/indent-blankline.nvim'
+  'lukas-reineke/indent-blankline.nvim',
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {
+      mode = 'quickfix'
+    }
+
+  }
 }
 
 require("lazy").setup(plugins, {
