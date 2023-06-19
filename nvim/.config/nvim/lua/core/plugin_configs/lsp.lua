@@ -7,6 +7,7 @@ lspconfig.gopls.setup{}
 lspconfig.html.setup{}
 lspconfig.emmet_ls.setup{}
 lspconfig.tailwindcss.setup{}
+lspconfig.marksman.setup{}
 
 lspconfig.lua_ls.setup{
   settings = {
