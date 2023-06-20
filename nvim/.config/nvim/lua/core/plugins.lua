@@ -15,9 +15,9 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
   {'mhinz/vim-startify', name = 'Startify'},
   {'folke/tokyonight.nvim', name = 'TokyoNight colorscheme'},
-  {'catppuccin/nvim', name = 'Catppuccin colorscheme'},
-  {'rose-pine/neovim', name = 'Rose-pine colorscheme'},
-  {'rebelot/kanagawa.nvim', name = 'Kanagawa colorscheme'},
+  {'catppuccin/nvim', name = 'Catppuccin colorscheme', lazy = true},
+  {'rose-pine/neovim', name = 'Rose-pine colorscheme', lazy = true},
+  {'rebelot/kanagawa.nvim', name = 'Kanagawa colorscheme', lazy = true},
 
   {
     'nvim-neo-tree/neo-tree.nvim',
