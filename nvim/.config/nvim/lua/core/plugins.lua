@@ -21,7 +21,7 @@ local plugins = {
 
   {
     'nvim-neo-tree/neo-tree.nvim',
-    branch = 'v2.x',
+    branch = 'v3.x',
     name = 'Neotree',
     dependencies = {
       'nvim-lua/plenary.nvim',
