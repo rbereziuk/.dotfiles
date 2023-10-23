@@ -4,7 +4,17 @@ lspconfig.tsserver.setup {}
 --require('lspconfig')['tsserver'].setup{}
 lspconfig.pyright.setup {}
 lspconfig.gopls.setup{}
-lspconfig.html.setup{}
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+lspconfig.html.setup{
+  capabilities = capabilities,
+}
+
+require'lspconfig'.cssls.setup {
+  capabilities = capabilities,
+}
+
 lspconfig.emmet_ls.setup{}
 lspconfig.tailwindcss.setup{}
 lspconfig.marksman.setup{}
