@@ -42,7 +42,7 @@ local plugins = {
   },
 
   {
-    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    'nvim-telescope/telescope.nvim', tag = '0.1.4',
     name = 'Telescope',
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
