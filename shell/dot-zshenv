@@ -4,6 +4,7 @@
 # set vim default editor
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+export XCURSOR_THEME=Bibata-Modern-Classic alacritty
 
 # FZF
 # Setting fd as the default source for fzf
