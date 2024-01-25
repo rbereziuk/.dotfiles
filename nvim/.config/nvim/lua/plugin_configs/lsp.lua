@@ -17,18 +17,18 @@ require'lspconfig'.cssls.setup {
 
 lspconfig.emmet_ls.setup{}
 lspconfig.tailwindcss.setup{}
-lspconfig.marksman.setup{}
+--lspconfig.marksman.setup{}
 
-lspconfig.lua_ls.setup{
-  settings = {
-    Lua = {
-      diagnostics = {
-        -- Get the language server to recognize the 'vim' global
-        globals = { 'vim' }
-      }
-    }
-  }
-}
+--lspconfig.lua_ls.setup{
+--  settings = {
+--    Lua = {
+--      diagnostics = {
+--        -- Get the language server to recognize the 'vim' global
+--        globals = { 'vim' }
+--      }
+--    }
+--  }
+--}
 
 
 -- Global mappings.

@@ -14,7 +14,12 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   {'mhinz/vim-startify', name = 'Startify'},
-  {'folke/tokyonight.nvim', name = 'TokyoNight colorscheme'},
+  {
+    'folke/tokyonight.nvim',
+    lazy = false,
+    priority = 1000,
+    name = 'TokyoNight colorscheme'
+  },
   {'catppuccin/nvim', name = 'Catppuccin colorscheme', lazy = true},
   {'rose-pine/neovim', name = 'Rose-pine colorscheme', lazy = true},
   {'rebelot/kanagawa.nvim', name = 'Kanagawa colorscheme', lazy = true},
@@ -189,7 +194,7 @@ local plugins = {
       'rcarriga/nvim-notify',
     }
   },
-  'wakatime/vim-wakatime',
+  { 'wakatime/vim-wakatime', lazy = false },
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
   {
     "folke/trouble.nvim",

@@ -1,10 +1,10 @@
 if vim.g.vscode then
-  require('core.vscode')
+  require('vscode')
 else
-  require('core.global_settings')
-  require('core.keymaps')
-  require('core.plugins')
-  require('core.plugin_configs')
-  require('core.autocmd')
+  require('global_settings')
+  require('keymaps')
+  require('plugins')
+  require('plugin_configs')
+  require('autocmd')
 end
 

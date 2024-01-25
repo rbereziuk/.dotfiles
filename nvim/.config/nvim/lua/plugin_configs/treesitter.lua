@@ -1,23 +1,30 @@
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
   ensure_installed = {
+    'c',
+    'lua',
+    'vim',
+    'vimdoc',
+    'query',
     'html',
     'pug',
     'css',
     'javascript',
     'typescript',
     'tsx',
-    'lua',
     'python',
     'go',
+    'rust',
     'markdown',
     'markdown_inline',
     'yaml',
     'bash',
-    'vim',
     'regex',
     'graphql'
   },
+
+  -- Install if open file with no parser
+  --auto_install = true,
 
   highlight = {
     enable = true,
