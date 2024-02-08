@@ -23,4 +23,4 @@ vim.opt.signcolumn = 'yes:1'
 
 --vim.opt.wrap = false
 --vim.opt.scrolloff = 999
---vim.opt.clipboard = 'unnamedplus'
+vim.opt.clipboard = 'unnamedplus'
