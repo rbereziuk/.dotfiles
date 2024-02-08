@@ -29,6 +29,15 @@ require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
   },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "<Leader>ss", -- set to `false` to disable one of the mappings
+      node_incremental = "<Leader>si",
+      scope_incremental = "<Leader>ss",
+      node_decremental = "<Leader>sd",
+    },
+  },
   indent = {
     enable = true
   },
