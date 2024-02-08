@@ -23,6 +23,7 @@ local plugins = {
   {'catppuccin/nvim', name = 'Catppuccin colorscheme', lazy = true},
   {'rose-pine/neovim', name = 'Rose-pine colorscheme', lazy = true},
   {'rebelot/kanagawa.nvim', name = 'Kanagawa colorscheme', lazy = true},
+  'oxfist/night-owl.nvim',
 
   {
     'nvim-neo-tree/neo-tree.nvim',
