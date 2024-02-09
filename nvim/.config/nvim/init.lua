@@ -1,7 +1,7 @@
 if vim.g.vscode then
   require('vscode')
 else
-  require('global_settings')
+  require('options')
   require('keymaps')
   require('plugins')
   require('plugin_configs')

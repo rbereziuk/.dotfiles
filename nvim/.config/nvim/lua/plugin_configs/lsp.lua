@@ -1,7 +1,6 @@
 -- Setup language servers.
 local lspconfig = require('lspconfig')
 lspconfig.tsserver.setup {}
---require('lspconfig')['tsserver'].setup{}
 lspconfig.pyright.setup {}
 lspconfig.gopls.setup{}
 
@@ -19,16 +18,16 @@ lspconfig.emmet_ls.setup{}
 lspconfig.tailwindcss.setup{}
 --lspconfig.marksman.setup{}
 
---lspconfig.lua_ls.setup{
---  settings = {
---    Lua = {
---      diagnostics = {
---        -- Get the language server to recognize the 'vim' global
---        globals = { 'vim' }
---      }
---    }
---  }
---}
+lspconfig.lua_ls.setup{
+  settings = {
+    Lua = {
+      diagnostics = {
+        -- Get the language server to recognize the 'vim' global
+        globals = { 'vim' }
+      }
+    }
+  }
+}
 
 
 -- Global mappings.

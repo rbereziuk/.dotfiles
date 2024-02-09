@@ -23,7 +23,7 @@ local plugins = {
   {'catppuccin/nvim', name = 'Catppuccin colorscheme', lazy = true},
   {'rose-pine/neovim', name = 'Rose-pine colorscheme', lazy = true},
   {'rebelot/kanagawa.nvim', name = 'Kanagawa colorscheme', lazy = true},
-  'oxfist/night-owl.nvim',
+  {'oxfist/night-owl.nvim', name="Night Owl", lazy = true},
 
   {
     'nvim-neo-tree/neo-tree.nvim',
@@ -93,7 +93,11 @@ local plugins = {
     name = 'lspsaga',
     event = "LspAttach",
     config = function()
-        require("lspsaga").setup({})
+      require("lspsaga").setup({
+        lightbulb = {
+          virtual_text = false
+        }
+      })
     end,
     dependencies = {
       {"nvim-tree/nvim-web-devicons"},
@@ -102,7 +106,7 @@ local plugins = {
     }
   },
   {'ray-x/lsp_signature.nvim' },
-  'jose-elias-alvarez/null-ls.nvim',
+  'nvimtools/none-ls.nvim',
 
   -- Other
   'tpope/vim-surround',

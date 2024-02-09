@@ -7,7 +7,7 @@ local keymap = vim.keymap.set
 keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>")
 
 -- Code action
-keymap({"n","v"}, "<leader>ca", "<cmd>Lspsaga code_action<CR>")
+keymap({"n","v"}, "<leader>sca", "<cmd>Lspsaga code_action<CR>")
 
 -- Rename all occurrences of the hovered word for the entire file
 keymap("n", "<leader>rs", "<cmd>Lspsaga rename<CR>")
