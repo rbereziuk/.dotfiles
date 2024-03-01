@@ -17,3 +17,7 @@ keymap.set('n', '<C-l>', '<C-w>l')
 keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
+-- Lazygit
+vim.keymap.set('n', '<leader>lg', function()
+  require('lazy.util').float_term({ 'lazygit' })
+end, { desc = 'Lazygit' })
