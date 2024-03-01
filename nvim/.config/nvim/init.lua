@@ -7,4 +7,3 @@ else
   require('plugin_configs')
   require('autocmd')
 end
-
