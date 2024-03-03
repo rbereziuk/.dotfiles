@@ -24,7 +24,13 @@ let g:ascii = [
       \ ' ⣿⣿⣧⣀⣿.........⣀⣰⣏⣘⣆⣀⠀'
       \]
 
+let g:startify_custom_header_quotes = [
+      \ ['I... a universe of atoms, an atom in the universe.', '', '― Richard P. Feynman'],
+      \ ['Control of consciousness determines the quality of life.', '', '― Mihaly Csikszentmihalyi'],
+      \ ['He was going to live forever, or die in the attempt.', '', '— Joseph Heller'],
+      \ ]
 "let g:startify_custom_header = g:ascii + startify#fortune#boxed()
 let g:startify_custom_header = startify#center(g:ascii) + startify#center(startify#fortune#boxed())
+
 
 endif
