@@ -19,6 +19,10 @@ local plugins = {
     lazy = false,
     priority = 1000,
     name = 'TokyoNight colorscheme',
+    config = function()
+      vim.cmd.colorscheme('tokyonight-night')
+      --vim.cmd[[colorscheme tokyonight-night]]
+    end,
   },
   { 'catppuccin/nvim', name = 'Catppuccin colorscheme' },
   { 'rose-pine/neovim', name = 'Rose-pine colorscheme' },

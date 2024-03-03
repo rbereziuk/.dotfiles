@@ -1,4 +1,3 @@
-require('plugin_configs.colorscheme')
 require('plugin_configs.file-explorer')
 require('plugin_configs.lualine')
 require('plugin_configs.bufferline')
