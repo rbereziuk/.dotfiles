@@ -20,10 +20,10 @@ local plugins = {
     priority = 1000,
     name = 'TokyoNight colorscheme',
   },
-  { 'catppuccin/nvim', name = 'Catppuccin colorscheme', lazy = true },
-  { 'rose-pine/neovim', name = 'Rose-pine colorscheme', lazy = true },
-  { 'rebelot/kanagawa.nvim', name = 'Kanagawa colorscheme', lazy = true },
-  { 'oxfist/night-owl.nvim', name = 'Night Owl', lazy = true },
+  { 'catppuccin/nvim', name = 'Catppuccin colorscheme' },
+  { 'rose-pine/neovim', name = 'Rose-pine colorscheme' },
+  { 'rebelot/kanagawa.nvim', name = 'Kanagawa colorscheme' },
+  { 'oxfist/night-owl.nvim', name = 'Night Owl' },
 
   {
     'nvim-neo-tree/neo-tree.nvim',
@@ -55,7 +55,7 @@ local plugins = {
   },
 
   { 'nvim-treesitter/nvim-treesitter', name = 'Treesitter', build = ':TSUpdate' },
-  'nvim-treesitter/nvim-treesitter-textobjects',
+  { 'nvim-treesitter/nvim-treesitter-textobjects', name = 'Treesitter textobjects' },
 
   {
     'windwp/nvim-autopairs',
@@ -65,7 +65,7 @@ local plugins = {
     end,
   },
 
-  'lewis6991/gitsigns.nvim',
+  { 'lewis6991/gitsigns.nvim', name = 'Git signs' },
 
   -- Configurations for LSP
   {
@@ -73,7 +73,7 @@ local plugins = {
     name = 'Mason',
     build = ':MasonUpdate', -- :MasonUpdate updates registry contents
   },
-  'williamboman/mason-lspconfig.nvim',
+  { 'williamboman/mason-lspconfig.nvim', name = 'Mason lspconfig' },
   'neovim/nvim-lspconfig', -- Collection of configurations for built-in LSP client
   'hrsh7th/nvim-cmp', -- Autocompletion plugin
   'hrsh7th/cmp-nvim-lsp', -- LSP source for nvim-cmp
@@ -88,7 +88,7 @@ local plugins = {
     build = 'make install_jsregexp',
   },
   --  'saadparwaiz1/cmp_luasnip',
-  'onsails/lspkind.nvim',
+  { 'onsails/lspkind.nvim', name = 'lspkind' },
   --  {
   --    "glepnir/lspsaga.nvim",
   --    name = 'lspsaga',
@@ -121,16 +121,7 @@ local plugins = {
   --  },
   --  {
   --  {'folke/neodev.nvim', config = function() require('neodev').setup({}) end},
-  --    'folke/zen-mode.nvim',
-  --    name = 'zen-mode',
-  --    config = function()
-  --      require("zen-mode").setup {
-  --        -- your configuration comes here
-  --        -- or leave it empty to use the default settings
-  --        -- refer to the configuration section below
-  --      }
-  --    end
-  --  },
+  { 'folke/zen-mode.nvim', name = 'Zen Mode' },
   {
     'folke/which-key.nvim',
     name = 'Which-key',
@@ -157,7 +148,7 @@ local plugins = {
   --    end
   --  },
   --  'rcarriga/nvim-notify',
-  --  { 'asiryk/auto-hlsearch.nvim', tag = '1.0.0' },
+  { 'asiryk/auto-hlsearch.nvim', name = 'hlsearch', tag = '1.1.0' },
   --  -- 'windwp/nvim-ts-autotag'
   --  -- 'NvChad/nvim-colorizer.lua'
   'MunifTanjim/prettier.nvim',
@@ -201,10 +192,11 @@ local plugins = {
   --      'rcarriga/nvim-notify',
   --    }
   --  },
-  { 'wakatime/vim-wakatime', lazy = false },
-  --  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+  { 'wakatime/vim-wakatime', name = 'Wakatime', lazy = false },
+  { 'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = {} },
   {
     'folke/trouble.nvim',
+    name = 'Trouble',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = {
       --mode = 'quickfix'
