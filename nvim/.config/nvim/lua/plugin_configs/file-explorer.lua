@@ -3,17 +3,26 @@
 --vim.g.loaded_netrwPlugin = 1
 
 require('neo-tree').setup({
+  close_if_last_window = true,
   filesystem = {
     filtered_items = {
       hide_dotfiles = false,
       hide_by_name = {
-        '.git'
-      }
+        '.git',
+      },
     },
     follow_current_file = {
-      enabled = true
-    }
-  }
+      enabled = true,
+    },
+  },
+  default_component_configs = {
+    git_status = {
+      symbols = {
+        added = '',
+        modified = '',
+      },
+    },
+  },
 })
-
+--
 vim.keymap.set('n', '<leader>fe', ':Neotree toggle<CR>', { silent = true })
