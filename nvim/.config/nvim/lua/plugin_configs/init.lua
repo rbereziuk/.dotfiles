@@ -1,3 +1,4 @@
+require('plugin_configs.startify')
 require('plugin_configs.file-explorer')
 require('plugin_configs.lualine')
 require('plugin_configs.bufferline')
