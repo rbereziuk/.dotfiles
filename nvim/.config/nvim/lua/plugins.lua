@@ -116,6 +116,13 @@ local plugins = {
   --  -- Other
   --  'tpope/vim-surround',
   'christoomey/vim-tmux-navigator',
+  {
+    'numToStr/Comment.nvim',
+    name = 'Comment',
+    config = function()
+      require('Comment').setup()
+    end,
+  },
   --  {
   --    'numToStr/Comment.nvim',
   --    name = 'Comment',
@@ -125,6 +132,12 @@ local plugins = {
   --  },
   --  {
   --  {'folke/neodev.nvim', config = function() require('neodev').setup({}) end},
+  {
+    'folke/neodev.nvim',
+    config = function()
+      require('neodev').setup({})
+    end,
+  },
   { 'folke/zen-mode.nvim', name = 'Zen Mode' },
   {
     'folke/which-key.nvim',
