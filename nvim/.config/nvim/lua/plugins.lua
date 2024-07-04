@@ -13,7 +13,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-  { 'mhinz/vim-startify', name = 'Startify' },
+  { 'mhinz/vim-startify',    name = 'Startify' },
   {
     'folke/tokyonight.nvim',
     lazy = false,
@@ -24,8 +24,8 @@ local plugins = {
       --vim.cmd[[colorscheme tokyonight-night]]
     end,
   },
-  { 'catppuccin/nvim', name = 'Catppuccin colorscheme' },
-  { 'rose-pine/neovim', name = 'Rose-pine colorscheme' },
+  { 'catppuccin/nvim',       name = 'Catppuccin colorscheme' },
+  { 'rose-pine/neovim',      name = 'Rose-pine colorscheme' },
   { 'rebelot/kanagawa.nvim', name = 'Kanagawa colorscheme' },
   { 'oxfist/night-owl.nvim', name = 'Night Owl' },
 
@@ -52,13 +52,13 @@ local plugins = {
   },
 
   {
-    'nvim-telescope/telescope.nvim',
-    tag = '0.1.5',
     name = 'Telescope',
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.8',
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
 
-  { 'nvim-treesitter/nvim-treesitter', name = 'Treesitter', build = ':TSUpdate' },
+  { 'nvim-treesitter/nvim-treesitter',             name = 'Treesitter',            build = ':TSUpdate' },
   { 'nvim-treesitter/nvim-treesitter-textobjects', name = 'Treesitter textobjects' },
 
   {
@@ -69,7 +69,7 @@ local plugins = {
     end,
   },
 
-  { 'lewis6991/gitsigns.nvim', name = 'Git signs' },
+  { 'lewis6991/gitsigns.nvim',           name = 'Git signs' },
 
   -- Configurations for LSP
   {
@@ -79,8 +79,8 @@ local plugins = {
   },
   { 'williamboman/mason-lspconfig.nvim', name = 'Mason lspconfig' },
   'neovim/nvim-lspconfig', -- Collection of configurations for built-in LSP client
-  'hrsh7th/nvim-cmp', -- Autocompletion plugin
-  'hrsh7th/cmp-nvim-lsp', -- LSP source for nvim-cmp
+  'hrsh7th/nvim-cmp',      -- Autocompletion plugin
+  'hrsh7th/cmp-nvim-lsp',  -- LSP source for nvim-cmp
   'hrsh7th/cmp-buffer',
   --  'hrsh7th/cmp-path',
   --  'hrsh7th/cmp-cmdline',
@@ -91,7 +91,8 @@ local plugins = {
     -- install jsregexp (optional!).
     build = 'make install_jsregexp',
   },
-  --  'saadparwaiz1/cmp_luasnip',
+  'saadparwaiz1/cmp_luasnip',
+
   { 'onsails/lspkind.nvim', name = 'lspkind' },
   --  {
   --    "glepnir/lspsaga.nvim",
@@ -138,7 +139,7 @@ local plugins = {
       require('neodev').setup({})
     end,
   },
-  { 'folke/zen-mode.nvim', name = 'Zen Mode' },
+  { 'folke/zen-mode.nvim',  name = 'Zen Mode' },
   {
     'folke/which-key.nvim',
     name = 'Which-key',
@@ -165,7 +166,7 @@ local plugins = {
   --    end
   --  },
   --  'rcarriga/nvim-notify',
-  { 'asiryk/auto-hlsearch.nvim', name = 'hlsearch', tag = '1.1.0' },
+  { 'asiryk/auto-hlsearch.nvim',           name = 'hlsearch', tag = '1.1.0' },
   --  -- 'windwp/nvim-ts-autotag'
   --  -- 'NvChad/nvim-colorizer.lua'
   'MunifTanjim/prettier.nvim',
@@ -209,8 +210,8 @@ local plugins = {
   --      'rcarriga/nvim-notify',
   --    }
   --  },
-  { 'wakatime/vim-wakatime', name = 'Wakatime', lazy = false },
-  { 'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = {} },
+  { 'wakatime/vim-wakatime',               name = 'Wakatime', lazy = false },
+  { 'lukas-reineke/indent-blankline.nvim', main = 'ibl',      opts = {} },
   {
     'folke/trouble.nvim',
     name = 'Trouble',
