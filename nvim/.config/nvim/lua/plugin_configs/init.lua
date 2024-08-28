@@ -13,7 +13,7 @@ require('plugin_configs.complition')
 ---- require('plugin_configs.colorizer')
 
 require('plugin_configs.null-ls')
-require('plugin_configs.prettier')
+--require('plugin_configs.prettier')
 
 require('plugin_configs.luasnip')
 require('plugin_configs.git')

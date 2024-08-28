@@ -8,3 +8,5 @@ require('ibl').setup({
 })
 --vim.cmd [[highlight IndentBlanklineChar guifg=#27283F gui=nocombine]]
 --vim.cmd [[highlight IndentBlanklineChar guifg=#1D1E2F gui=nocombine]]
+
+--require('nvim-ts-autotag').setup()

@@ -2,20 +2,21 @@
 local lspconfig = require('lspconfig')
 
 lspconfig.tsserver.setup({})
+require'lspconfig'.eslint.setup{}
 --lspconfig.pyright.setup {}
 --lspconfig.gopls.setup{}
 --
---local capabilities = vim.lsp.protocol.make_client_capabilities()
---capabilities.textDocument.completion.completionItem.snippetSupport = true
---lspconfig.html.setup{
---  capabilities = capabilities,
---}
---
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+lspconfig.html.setup{
+  capabilities = capabilities,
+}
+
 --require'lspconfig'.cssls.setup {
 --  capabilities = capabilities,
 --}
 --
---lspconfig.emmet_ls.setup{}
+lspconfig.emmet_ls.setup{}
 --lspconfig.tailwindcss.setup{}
 ----lspconfig.marksman.setup{}
 
@@ -57,9 +58,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     --vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
     vim.keymap.set('n', '<space><space>wa', vim.lsp.buf.add_workspace_folder, opts)
     vim.keymap.set('n', '<space><space>wr', vim.lsp.buf.remove_workspace_folder, opts)
-    vim.keymap.set('n', '<space>wl', function()
-      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    end, opts)
+    -- vim.keymap.set('n', '<space>wl', function()
+    --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    -- end, opts)
     vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
     vim.keymap.set('n', '<leader>rs', vim.lsp.buf.rename, { buffer = ev.buf, desc = 'Rename symbol' })
     vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
