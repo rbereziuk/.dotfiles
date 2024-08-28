@@ -14,11 +14,12 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   { 'mhinz/vim-startify',    name = 'Startify' },
+
   {
     'folke/tokyonight.nvim',
+    name = 'TokyoNight colorscheme',
     lazy = false,
     priority = 1000,
-    name = 'TokyoNight colorscheme',
     config = function()
       vim.cmd.colorscheme('tokyonight-night')
       --vim.cmd[[colorscheme tokyonight-night]]
@@ -27,7 +28,7 @@ local plugins = {
   { 'catppuccin/nvim',       name = 'Catppuccin colorscheme' },
   { 'rose-pine/neovim',      name = 'Rose-pine colorscheme' },
   { 'rebelot/kanagawa.nvim', name = 'Kanagawa colorscheme' },
-  { 'oxfist/night-owl.nvim', name = 'Night Owl' },
+  { 'oxfist/night-owl.nvim', name = 'Night Owl colorscheme' },
 
   {
     'nvim-neo-tree/neo-tree.nvim',
@@ -167,9 +168,9 @@ local plugins = {
   --  },
   --  'rcarriga/nvim-notify',
   { 'asiryk/auto-hlsearch.nvim',           name = 'hlsearch', tag = '1.1.0' },
-  --  -- 'windwp/nvim-ts-autotag'
+  'windwp/nvim-ts-autotag',
   --  -- 'NvChad/nvim-colorizer.lua'
-  'MunifTanjim/prettier.nvim',
+  --'MunifTanjim/prettier.nvim',
   --  {
   --    'akinsho/toggleterm.nvim',
   --    name = 'ToggleTerm',
