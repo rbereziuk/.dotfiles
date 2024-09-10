@@ -5,5 +5,5 @@ require("mason").setup({
 })
 
 require('mason-lspconfig').setup {
-  ensure_installed = { 'tsserver', 'emmet_ls', 'tailwindcss', 'marksman', 'pyright' },
+  ensure_installed = { 'ts_ls', 'emmet_ls', 'tailwindcss', 'marksman', 'pyright' },
 }

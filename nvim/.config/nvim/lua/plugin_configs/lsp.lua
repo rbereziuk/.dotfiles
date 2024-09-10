@@ -1,7 +1,7 @@
 -- Setup language servers.
 local lspconfig = require('lspconfig')
 
-lspconfig.tsserver.setup({})
+lspconfig.ts_ls.setup({})
 require'lspconfig'.eslint.setup{}
 --lspconfig.pyright.setup {}
 --lspconfig.gopls.setup{}
