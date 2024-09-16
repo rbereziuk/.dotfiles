@@ -168,7 +168,7 @@ local plugins = {
   --  },
   --  'rcarriga/nvim-notify',
   { 'asiryk/auto-hlsearch.nvim',           name = 'hlsearch', tag = '1.1.0' },
-  'windwp/nvim-ts-autotag',
+  { 'windwp/nvim-ts-autotag', branch = 'nvim_0.9' },
   --  -- 'NvChad/nvim-colorizer.lua'
   --'MunifTanjim/prettier.nvim',
   --  {
