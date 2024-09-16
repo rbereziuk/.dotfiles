@@ -39,15 +39,18 @@ alias get='git '
 
 alias lg='lazygit'
 
-alias copy-ssh="cat ~/.ssh/id_rsa.pub | xclip -sel clip"
 
 # APPS
 alias tldr='tldr -t ocean'
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 
 # Other
-alias kb='cd /home/roman/Lab/Knowledge-base && book sm g && cd ../GitBook && gitbook serve --browser=firefox --open'
 
 alias rs='source ~/.bashrc'
 
-
+# Aliases only fo Linux
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  alias copy='xclip -selection clipboard -r'
+  alias copy-ssh="cat ~/.ssh/id_rsa.pub | xclip -sel clip"
+  alias kb='cd /home/roman/Lab/Knowledge-base && book sm g && cd ../GitBook && gitbook serve --browser=firefox --open'
+fi
