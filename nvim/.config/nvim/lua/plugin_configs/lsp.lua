@@ -11,11 +11,10 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 lspconfig.html.setup{
   capabilities = capabilities,
 }
+require'lspconfig'.cssls.setup {
+  capabilities = capabilities,
+}
 
---require'lspconfig'.cssls.setup {
---  capabilities = capabilities,
---}
---
 lspconfig.emmet_ls.setup{}
 --lspconfig.tailwindcss.setup{}
 ----lspconfig.marksman.setup{}

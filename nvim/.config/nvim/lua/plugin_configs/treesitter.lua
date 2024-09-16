@@ -39,6 +39,8 @@ require'nvim-treesitter.configs'.setup {
   indent = {
     enable = true
   },
+
+  -- From https://github.com/windwp/nvim-ts-autotag/tree/nvim_0.9
   autotag = {
     enable = true,
   },
