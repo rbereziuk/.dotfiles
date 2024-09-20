@@ -1,7 +1,6 @@
 -- Setup language servers.
 local lspconfig = require('lspconfig')
 
-lspconfig.ts_ls.setup({})
 require'lspconfig'.eslint.setup{}
 --lspconfig.pyright.setup {}
 --lspconfig.gopls.setup{}
@@ -14,6 +13,10 @@ lspconfig.html.setup{
 require'lspconfig'.cssls.setup {
   capabilities = capabilities,
 }
+
+lspconfig.ts_ls.setup({
+  capabilities = capabilities
+})
 
 lspconfig.emmet_ls.setup{}
 --lspconfig.tailwindcss.setup{}
