@@ -2,7 +2,7 @@
 local lspconfig = require('lspconfig')
 
 require'lspconfig'.eslint.setup{}
---lspconfig.pyright.setup {}
+lspconfig.pyright.setup {}
 --lspconfig.gopls.setup{}
 --
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -38,8 +38,8 @@ lspconfig.bashls.setup({})
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, { desc = 'Open float' })
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Next diagnostic' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Prev diagnostic' })
+--vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Next diagnostic' })
+--vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Prev diagnostic' })
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 
 -- Use LspAttach autocommand to only map the following keys
@@ -65,7 +65,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- end, opts)
     vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
     vim.keymap.set('n', '<leader>rs', vim.lsp.buf.rename, { buffer = ev.buf, desc = 'Rename symbol' })
-    vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+    --vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
     vim.keymap.set('n', '<space>f', function()
       vim.lsp.buf.format({ async = true })

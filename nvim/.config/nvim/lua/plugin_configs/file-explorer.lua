@@ -3,7 +3,7 @@
 --vim.g.loaded_netrwPlugin = 1
 
 require('neo-tree').setup({
-  close_if_last_window = true,
+  --close_if_last_window = true,
   filesystem = {
     filtered_items = {
       hide_dotfiles = false,

@@ -8,7 +8,7 @@ require('plugin_configs.treesitter')
 require('plugin_configs.mason')
 require('plugin_configs.lsp')
 require('plugin_configs.complition')
---require('plugin_configs.lspsaga')
+require('plugin_configs.lspsaga')
 
 ---- require('plugin_configs.colorizer')
 

@@ -6,14 +6,10 @@
   },
   "useEffect": {
     "prefix": "ue",
-    "body": [
-      "useEffect(() => {",
-      "\t$1",
-      "}, [${3:dependencies}])$0"
-    ],
-    "description": "React useEffect() hook"
+    "body": ["useEffect(() => {", "\t$1", "}, [${3:dependencies}])$0"],
+    "description": "React `useEffect()` hook"
   },
-	"useEffect with return": {
+  "useEffect with return": {
     "prefix": "uer",
     "body": [
       "useEffect(() => {",
@@ -25,7 +21,7 @@
     ],
     "description": "React useEffect() hook with return statement"
   },
-	"useContext": {
+  "useContext": {
     "prefix": "uc",
     "body": ["const $1 = useContext($2)$0"],
     "description": "React useContext() hook"
@@ -35,7 +31,7 @@
     "body": ["const ${1:elName}El = useRef(null)$0"],
     "description": "React useContext() hook"
   },
-	"useCallback": {
+  "useCallback": {
     "prefix": "ucb",
     "body": [
       "const ${1:memoizedCallback} = useCallback(",

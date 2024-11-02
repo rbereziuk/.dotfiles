@@ -95,28 +95,30 @@ local plugins = {
   'saadparwaiz1/cmp_luasnip',
 
   { 'onsails/lspkind.nvim', name = 'lspkind' },
-  --  {
-  --    "glepnir/lspsaga.nvim",
-  --    name = 'lspsaga',
-  --    event = "LspAttach",
-  --    config = function()
-  --      require("lspsaga").setup({
-  --        lightbulb = {
-  --          virtual_text = false
-  --        }
-  --      })
-  --    end,
-  --    dependencies = {
-  --      {"nvim-tree/nvim-web-devicons"},
-  --      --Please make sure you install markdown and markdown_inline parser
-  --      {'nvim-treesitter/nvim-treesitter', name = 'Treesitter'}
-  --    }
-  --  },
+  {
+    "glepnir/lspsaga.nvim",
+    name = 'lspsaga',
+    event = "LspAttach",
+    config = function()
+      require("lspsaga").setup({
+        lightbulb = {
+          virtual_text = false,
+          enable = false
+
+        }
+      })
+    end,
+    dependencies = {
+      {"nvim-tree/nvim-web-devicons"},
+      --Please make sure you install markdown and markdown_inline parser
+      {'nvim-treesitter/nvim-treesitter', name = 'Treesitter'}
+    }
+  },
   --  {'ray-x/lsp_signature.nvim' },
   'nvimtools/none-ls.nvim',
   --
   --  -- Other
-  --  'tpope/vim-surround',
+  'tpope/vim-surround',
   'christoomey/vim-tmux-navigator',
   {
     'numToStr/Comment.nvim',
@@ -125,14 +127,6 @@ local plugins = {
       require('Comment').setup()
     end,
   },
-  --  {
-  --    'numToStr/Comment.nvim',
-  --    name = 'Comment',
-  --    config = function()
-  --        require('Comment').setup()
-  --    end
-  --  },
-  --  {
   --  {'folke/neodev.nvim', config = function() require('neodev').setup({}) end},
   {
     'folke/neodev.nvim',
