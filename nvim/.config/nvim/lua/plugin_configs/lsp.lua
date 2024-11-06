@@ -1,6 +1,26 @@
 -- Setup language servers.
 local lspconfig = require('lspconfig')
 
+
+local border = {
+      {"🭽", "FloatBorder"},
+      {"▔", "FloatBorder"},
+      {"🭾", "FloatBorder"},
+      {"▕", "FloatBorder"},
+      {"🭿", "FloatBorder"},
+      {"▁", "FloatBorder"},
+      {"🭼", "FloatBorder"},
+      {"▏", "FloatBorder"},
+}
+
+-- LSP settings (for overriding per client)
+local handlers =  {
+  ["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = border}),
+  ["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = border }),
+}
+
+
+
 require'lspconfig'.eslint.setup{}
 lspconfig.pyright.setup {}
 --lspconfig.gopls.setup{}
@@ -15,11 +35,14 @@ require'lspconfig'.cssls.setup {
 }
 
 lspconfig.ts_ls.setup({
-  capabilities = capabilities
+  capabilities = capabilities,
+  handlers = handlers
 })
 
-lspconfig.emmet_ls.setup{}
---lspconfig.tailwindcss.setup{}
+--lspconfig.emmet_ls.setup{}
+lspconfig.emmet_language_server.setup({})
+
+lspconfig.tailwindcss.setup{}
 ----lspconfig.marksman.setup{}
 
 lspconfig.lua_ls.setup({
@@ -34,6 +57,8 @@ lspconfig.lua_ls.setup({
 })
 
 lspconfig.bashls.setup({})
+
+require'lspconfig'.prismals.setup{}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -101,3 +126,5 @@ for type, icon in pairs(signs) do
   local hl = 'DiagnosticSign' .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
+
+
