@@ -20,7 +20,10 @@
         "path": "./snippets/javascript/javascript.json"
       },
       {
-        "language": "javascriptreact",
+        "language": [
+          "javascriptreact",
+          "typescriptreact"
+        ],
         "path": "./snippets/javascript/react.json"
       },
       {

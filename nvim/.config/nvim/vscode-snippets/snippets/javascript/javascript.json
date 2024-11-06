@@ -1,4 +1,24 @@
 {
+  "Log in console": {
+    "prefix": "cl",
+    "body": "console.log('🔮', ${2:value})${0}"
+  },
+  "Arrow function": {
+    "prefix": "af",
+    "body": [
+      "const ${1} = (${2}) => {",
+      "  ${0}",
+      "}"
+    ],
+    "description": "JS arrow function"
+  },
+
+
+
+
+
+
+
   "require": {
     "prefix": "rq1",
     "body": [
@@ -21,10 +41,6 @@
       "  ${0}",
       "}"
     ]
-  },
-  "Log in console": {
-    "prefix": "cl",
-    "body": "console.log('${1:emoji}', ${2:value})${0}"
   },
   "Switch Statement": {
     "prefix": "switch",
