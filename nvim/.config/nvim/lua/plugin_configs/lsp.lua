@@ -60,6 +60,20 @@ lspconfig.bashls.setup({})
 
 require'lspconfig'.prismals.setup{}
 
+require('lspconfig').jsonls.setup {
+  capabilities = capabilities,
+  settings = {
+    json = {
+      schemas = require('schemastore').json.schemas {
+        select = {
+          'prettierrc.json'
+        }
+      },
+      validate = { enable = true },
+    },
+  },
+}
+
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, { desc = 'Open float' })
@@ -89,7 +103,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     -- end, opts)
     vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-    vim.keymap.set('n', '<leader>rs', vim.lsp.buf.rename, { buffer = ev.buf, desc = 'Rename symbol' })
+    --vim.keymap.set('n', '<leader>rs', vim.lsp.buf.rename, { buffer = ev.buf, desc = 'Rename symbol' })
     --vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
     vim.keymap.set('n', '<space>f', function()

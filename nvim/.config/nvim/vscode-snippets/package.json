@@ -15,6 +15,7 @@
         "language": [
           "javascript",
           "javascriptreact",
+          "typescript",
           "typescriptreact"
         ],
         "path": "./snippets/javascript/javascript.json"

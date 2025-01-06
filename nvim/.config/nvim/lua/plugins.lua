@@ -13,7 +13,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-  { 'mhinz/vim-startify',    name = 'Startify' },
+  { 'mhinz/vim-startify', name = 'Startify' },
 
   {
     'folke/tokyonight.nvim',
@@ -59,7 +59,7 @@ local plugins = {
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
 
-  { 'nvim-treesitter/nvim-treesitter',             name = 'Treesitter',            build = ':TSUpdate' },
+  { 'nvim-treesitter/nvim-treesitter',             name = 'Treesitter', build = ':TSUpdate' },
   { 'nvim-treesitter/nvim-treesitter-textobjects', name = 'Treesitter textobjects' },
 
   {
@@ -70,7 +70,7 @@ local plugins = {
     end,
   },
 
-  { 'lewis6991/gitsigns.nvim',           name = 'Git signs' },
+  { 'lewis6991/gitsigns.nvim', name = 'Git signs' },
 
   -- Configurations for LSP
   {
@@ -161,7 +161,7 @@ local plugins = {
   --    end
   --  },
   --  'rcarriga/nvim-notify',
-  { 'asiryk/auto-hlsearch.nvim',           name = 'hlsearch', tag = '1.1.0' },
+  { 'asiryk/auto-hlsearch.nvim', name = 'hlsearch', tag = '1.1.0' },
   { 'windwp/nvim-ts-autotag', branch = 'nvim_0.9' },
   --  -- 'NvChad/nvim-colorizer.lua'
   --'MunifTanjim/prettier.nvim',
@@ -215,6 +215,7 @@ local plugins = {
       --mode = 'quickfix'
     },
   },
+  { 'b0o/schemastore.nvim' },
 }
 
 require('lazy').setup(plugins, {
