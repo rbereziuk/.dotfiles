@@ -4,7 +4,7 @@ vim.opt.cursorline = true
 
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2 --indent width
+vim.opt.shiftwidth = 2 --intend width
 
 -- Natural split appearance
 vim.opt.splitbelow = true
@@ -15,13 +15,13 @@ vim.opt.smartcase = true -- ignore case when all letters lower
 vim.opt.scrolloff = 5 -- padding if press z-enter
 vim.opt.hidden = true -- allow change edited buffer
 vim.opt.mouse = 'a' -- enable all mouse actions
-vim.opt.signcolumn = 'yes:1'
+--vim.opt.signcolumn = 'yes:1'
 
 --vim.opt.wrap = false
 --vim.opt.clipboard = 'unnamedplus'
 
 --vim.opt.virtualedit = "block"
---vim.opt.inccommand = "split"
+--vim.opt.inccommand = "split" --show preview of substitute
 vim.opt.termguicolors = true
 
 --vim.opt.scrolloff = 999
