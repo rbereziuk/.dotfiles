@@ -15,7 +15,7 @@ vim.opt.smartcase = true -- ignore case when all letters lower
 vim.opt.scrolloff = 5 -- padding if press z-enter
 vim.opt.hidden = true -- allow change edited buffer
 vim.opt.mouse = 'a' -- enable all mouse actions
---vim.opt.signcolumn = 'yes:1'
+vim.opt.signcolumn = 'yes:1'
 
 --vim.opt.wrap = false
 --vim.opt.clipboard = 'unnamedplus'
