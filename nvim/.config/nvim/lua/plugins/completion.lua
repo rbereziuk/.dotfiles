@@ -21,7 +21,9 @@ return {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
       },
-      mapping = cmp.mapping.preset.insert(),
+      mapping = cmp.mapping.preset.insert({
+        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+      }),
       sources = {
         --{ name = 'luasnip' },
         { name = 'nvim_lsp' },
