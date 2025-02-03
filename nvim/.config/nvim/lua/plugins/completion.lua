@@ -27,7 +27,7 @@ return {
       sources = {
         --{ name = 'luasnip' },
         { name = 'nvim_lsp' },
-        --{ name = 'buffer' },
+        { name = 'buffer' },
       },
     })
   end
