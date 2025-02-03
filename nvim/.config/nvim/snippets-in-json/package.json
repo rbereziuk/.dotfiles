@@ -1,0 +1,16 @@
+{
+  "name": "snippets-in-json",
+  "engines": {
+    "vscode": "^1.11.0"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": [
+          "typescriptreact"
+        ],
+        "path": "./snippets/react-native.json"
+      }
+    ]
+  }
+}

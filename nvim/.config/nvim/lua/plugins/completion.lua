@@ -11,12 +11,12 @@ return {
     local cmp = require'cmp'
 
     require('cmp').setup({
-      -- snippet = {
-      --   -- REQUIRED - you must specify a snippet engine
-      --   expand = function(args)
-      --     require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-      --   end,
-      -- },
+      snippet = {
+        -- REQUIRED - you must specify a snippet engine
+        expand = function(args)
+          require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+        end,
+      },
       window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
@@ -25,7 +25,7 @@ return {
         ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
       }),
       sources = {
-        --{ name = 'luasnip' },
+        { name = 'luasnip' },
         { name = 'nvim_lsp' },
         { name = 'buffer' },
       },
