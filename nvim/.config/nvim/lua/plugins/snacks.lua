@@ -47,4 +47,10 @@ return {
     lazygit = {},
 
   },
+
+  keys = {
+    -- find
+    { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
+    { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
+  }
 }
