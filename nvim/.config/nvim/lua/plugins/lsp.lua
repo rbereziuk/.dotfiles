@@ -15,6 +15,17 @@ local handlers =  {
   ['textDocument/signatureHelp'] =  vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
 }
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function()
+    vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next Diagnostic" })
+    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Prev Diagnostic" })
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Goto Definition' })
+    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'Code Action' })
+  end
+})
+
 return {
   'neovim/nvim-lspconfig',
   config = function()
