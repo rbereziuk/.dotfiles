@@ -14,6 +14,6 @@ return {
   },
   keys = {
     --{ '<leader>ff', '<cmd>Telescope find_files<cr>', desc = 'Find Files' },
-    --{ '<leader>fg', '<cmd>Telescope live_grep<cr>', desc = 'Find Text' }
+    { '<leader>fg', '<cmd>Telescope live_grep<cr>', desc = 'Find Text' }
   }
 }
