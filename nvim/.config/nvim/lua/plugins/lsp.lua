@@ -16,6 +16,7 @@ local handlers =  {
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function()
@@ -30,7 +31,8 @@ return {
   'neovim/nvim-lspconfig',
   config = function()
     require'lspconfig'.ts_ls.setup{
-      handlers = handlers
+      handlers = handlers,
+      capabilities = capabilities
     }
     require'lspconfig'.eslint.setup{}
   end

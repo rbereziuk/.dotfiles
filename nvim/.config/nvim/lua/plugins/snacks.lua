@@ -12,7 +12,7 @@ return {
     dashboard = { 
       enabled = true,
       preset = {
-      header = [[
+        header = [[
 ⣿⣿⣿⣿⣿⣿⣿⣿⠟⣡⣾⣿⣿⣿⣿⢿⣿⣿⡻⡿⠿⠿⠿⠿⠿⠿⠿⠿⣿⣿⡿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⢟⣫⣴⣾⣿⣿
 ⣿⣿⣿⣿⣿⣿⠟⣡⣾⣿⣿⣿⣿⣿⣿⡇⠘⠻⣷⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠘⣿⣿⣿⣿⢸⣿⣿⣿⣏⢡⣶⣿⣿⣿⣿⣿⣿
 ⣿⣿⣿⣿⣏⣀⣭⣭⡝⣿⡝⣿⣿⣿⣿⠁⠀⣤⣬⣝⡂⢰⣶⣦⣤⣤⣤⣀⣀⡀⠀⠀⠘⢿⣿⣿⢸⣿⣿⣿⣏⢓⡙⢿⣿⣿⣿⣿⣿
@@ -35,10 +35,10 @@ return {
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⡿⠆⠀⠀⠀⠀⠀⠀⢀⢄⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⣿⣿⣿⣿⣿
 ⣿⣿⣿⣿⣿⣿⠿⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⢸⡿⠋⢠⣤⠀⠀⣠⠆⠀⠀⢡⣾⡄⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣿⣿⣿⣿⣿⣿
 ]],
-      }
+      },
     },
     indent = { enabled = true },
-    -- input = { enabled = true },
+    --input = { enabled = true },
     -- notifier = { enabled = true },
     -- quickfile = { enabled = true },
     -- scroll = { enabled = true },
@@ -57,6 +57,8 @@ return {
     { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
     { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
     -- LSP
+    { "gr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "References" },
     { "<leader>ss", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
+    { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
   }
 }
