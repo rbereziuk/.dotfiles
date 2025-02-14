@@ -6,4 +6,7 @@
 --exclude=package*
 --exclude=webpack.config.js
 --exclude=.obsidian
+--exclude=*.json
+
+--map-TypeScript=+.tsx
 
