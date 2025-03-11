@@ -7,6 +7,12 @@
     "snippets": [
       {
         "language": [
+          "javascript"
+        ],
+        "path": "./snippets/javascript.json"
+      },
+      {
+        "language": [
           "typescriptreact"
         ],
         "path": "./snippets/react-native.json"
