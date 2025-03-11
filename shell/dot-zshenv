@@ -6,6 +6,8 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 export XCURSOR_THEME=Bibata-Modern-Classic alacritty
 
+export FZF_DEFAULT_OPTS_FILE=~/.fzfrc
+
 # FZF
 # Setting fd as the default source for fzf
 #export FZF_DEFAULT_COMMAND='fd --type f'
