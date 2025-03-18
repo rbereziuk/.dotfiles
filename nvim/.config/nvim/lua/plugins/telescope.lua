@@ -13,7 +13,8 @@ return {
     }
   },
   keys = {
-    { '<leader>ff', '<cmd>Telescope find_files<cr>', desc = 'Find Files' },
-    { '<leader>fg', '<cmd>Telescope live_grep<cr>', desc = 'Find Text' }
+    { '<leader><leader>ff', '<cmd>Telescope find_files<cr>', desc = 'Find Files' },
+    { '<leader><leader>fg', '<cmd>Telescope live_grep<cr>', desc = 'Find Text' },
+    { '<leader><leader>fb', '<cmd>Telescope buffers<cr>', desc = 'Find buffers' },
   }
 }
