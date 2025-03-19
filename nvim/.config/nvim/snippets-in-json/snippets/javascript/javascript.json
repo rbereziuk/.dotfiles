@@ -1,4 +1,12 @@
 {
+  "Log in console": {
+    "prefix": "cl",
+    "body": "console.log('🔮${1}', ${2:value})${0}"
+  },
+  "Pretty log in console": {
+    "prefix": "clp",
+    "body": "console.log('💅${1}', JSON.stringify($2, null, 2))$0"
+  },
   "for loop": {
     "prefix": "for",
     "body": [

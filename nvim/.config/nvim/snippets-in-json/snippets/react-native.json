@@ -1,6 +1,0 @@
-{
-  "Log in console": {
-    "prefix": "cl",
-    "body": "console.log('🔮', ${2:value})${0}"
-  }
-}

@@ -7,15 +7,24 @@
     "snippets": [
       {
         "language": [
-          "javascript"
+          "javascript",
+          "javascriptreact",
+          "typescript",
+          "typescriptreact"
         ],
-        "path": "./snippets/javascript.json"
+        "path": "./snippets/javascript/javascript.json"
       },
       {
         "language": [
           "typescriptreact"
         ],
-        "path": "./snippets/react-native.json"
+        "path": "./snippets/javascript/react.json"
+      },
+      {
+        "language": [
+          "typescriptreact"
+        ],
+        "path": "./snippets/javascript/react-native.json"
       }
     ]
   }
