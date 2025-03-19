@@ -9,5 +9,27 @@ return {
   },
   keys = {
     { '<leader>fe', '<cmd>Neotree toggle<cr>', desc = 'NeoTree toggle' },
+  },
+  opts = {
+    filesystem = {
+      window = {
+        mappings = {
+          ['of'] = 'system_open',
+        },
+      },
+    },
+    commands = {
+      system_open = function(state)
+        local node = state.tree:get_node()
+        local path = node:get_id()
+        local os_type = vim.loop.os_uname().sysname
+
+        if os_type == 'Linux' then
+          vim.fn.jobstart({ 'xdg-open', path }, { detach = true })
+        elseif os_type == 'Darwin' then
+          vim.fn.jobstart({ 'open', path }, { detach = true })
+        end
+      end
+    }
   }
 }
