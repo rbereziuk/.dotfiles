@@ -20,6 +20,8 @@ vim.opt.termguicolors = true
 vim.opt.signcolumn = 'yes:1'
 --vim.opt.wrap = false
 
+vim.opt.laststatus = 3
+
 -- Synchronizes the system clipboard
 --vim.opt.clipboard = 'unnamedplus'
 

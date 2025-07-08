@@ -36,5 +36,9 @@ return {
       capabilities = capabilities
     }
     require'lspconfig'.eslint.setup{}
+
+    require'lspconfig'.html.setup {
+      capabilities = capabilities,
+    }
   end
 }

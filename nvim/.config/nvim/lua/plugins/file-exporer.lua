@@ -30,6 +30,9 @@ return {
           vim.fn.jobstart({ 'open', path }, { detach = true })
         end
       end
+    },
+    extensions = {
+      'neo-tree',
     }
   }
 }

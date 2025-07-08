@@ -6,6 +6,7 @@ return {
       'javascript',
       'tsx',
       'typescript',
+      'html',
     },
     highlight = { enable = true },
   },
