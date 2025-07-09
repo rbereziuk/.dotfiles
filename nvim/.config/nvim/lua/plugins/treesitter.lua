@@ -3,10 +3,11 @@ return {
   build = ':TSUpdate',
   opts = {
     ensure_installed = {
+      'html',
       'javascript',
+      'lua',
       'tsx',
       'typescript',
-      'html',
     },
     highlight = { enable = true },
   },
