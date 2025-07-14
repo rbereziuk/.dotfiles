@@ -1,22 +1,22 @@
-local border = {
-  { '🭽', 'FloatBorder' },
-  { '▔', 'FloatBorder' },
-  { '🭾', 'FloatBorder' },
-  { '▕', 'FloatBorder' },
-  { '🭿', 'FloatBorder' },
-  { '▁', 'FloatBorder' },
-  { '🭼', 'FloatBorder' },
-  { '▏', 'FloatBorder' },
-}
+-- local border = {
+--   { '🭽', 'FloatBorder' },
+--   { '▔', 'FloatBorder' },
+--   { '🭾', 'FloatBorder' },
+--   { '▕', 'FloatBorder' },
+--   { '🭿', 'FloatBorder' },
+--   { '▁', 'FloatBorder' },
+--   { '🭼', 'FloatBorder' },
+--   { '▏', 'FloatBorder' },
+-- }
 
--- LSP settings (for overriding per client)
-local handlers =  {
-  ['textDocument/hover'] =  vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
-  ['textDocument/signatureHelp'] =  vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
-}
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- -- LSP settings (for overriding per client)
+-- local handlers =  {
+--   ['textDocument/hover'] =  vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+--   ['textDocument/signatureHelp'] =  vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+-- }
+--
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function()
@@ -32,13 +32,13 @@ return {
   'neovim/nvim-lspconfig',
   config = function()
     require'lspconfig'.ts_ls.setup{
-      handlers = handlers,
-      capabilities = capabilities
+      -- handlers = handlers,
+      -- capabilities = capabilities
     }
-    require'lspconfig'.eslint.setup{}
-
-    require'lspconfig'.html.setup {
-      capabilities = capabilities,
-    }
+    -- require'lspconfig'.eslint.setup{}
+    --
+    -- require'lspconfig'.html.setup {
+    --   capabilities = capabilities,
+    -- }
   end
 }

@@ -39,14 +39,14 @@ return {
     -- scroll = { enabled = true },
     -- statuscolumn = { enabled = true },
     -- words = { enabled = true },
-    terminal = {},
-    lazygit = {},
+    --terminal = {},
+    --lazygit = {},
 
   },
 
   keys = {
 
-    { '<leader>lg', function() Snacks.lazygit() end, desc = 'Lazygit' },
+    --{ '<leader>lg', function() Snacks.lazygit() end, desc = 'Lazygit' },
     -- Top Pickers & Explorer
     --{ "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
     --{ "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
@@ -55,7 +55,7 @@ return {
     { '<leader>fb', function() Snacks.picker.buffers() end, desc = 'Buffers' },
     --{ "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
     -- LSP
-    { 'gr', function() Snacks.picker.lsp_references() end, nowait = true, desc = 'References' },
+    --{ 'gr', function() Snacks.picker.lsp_references() end, nowait = true, desc = 'References' },
     --{ "<leader>ss", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
     --{ "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
   }

@@ -6,6 +6,9 @@ return {
   dependencies = {
     'hrsh7th/cmp-nvim-lsp', -- LSP source for nvim-cmp
     'hrsh7th/cmp-buffer',
+    -- additional dependencies for snippets
+    'L3MON4D3/LuaSnip',
+    'saadparwaiz1/cmp_luasnip'
   },
   config = function()
     local cmp = require'cmp'
