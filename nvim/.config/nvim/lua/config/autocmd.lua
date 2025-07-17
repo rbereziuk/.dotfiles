@@ -12,3 +12,10 @@ api.nvim_create_autocmd('BufEnter', {
     end
   end,
 })
+
+api.nvim_create_autocmd("TextYankPost", {
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+})
+
