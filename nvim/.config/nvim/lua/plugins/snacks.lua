@@ -33,20 +33,20 @@ return {
       },
     },
     indent = { enabled = true },
+    scroll = {},
     --input = { enabled = true },
     -- notifier = { enabled = true },
     -- quickfile = { enabled = true },
-    -- scroll = { enabled = true },
     -- statuscolumn = { enabled = true },
     -- words = { enabled = true },
     --terminal = {},
-    --lazygit = {},
+    lazygit = {},
 
   },
 
   keys = {
 
-    --{ '<leader>lg', function() Snacks.lazygit() end, desc = 'Lazygit' },
+    { '<leader>lg', function() Snacks.lazygit() end, desc = 'Lazygit' },
     -- Top Pickers & Explorer
     --{ "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
     --{ "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
