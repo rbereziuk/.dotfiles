@@ -17,6 +17,7 @@ vim.opt.scrolloff = 5 -- padding if press z-enter
 vim.opt.hidden = true -- allow change edited buffer
 vim.opt.mouse = 'a' -- enable all mouse actions
 vim.opt.termguicolors = true
+vim.opt.winborder = 'rounded'
 vim.opt.signcolumn = 'yes:1'
 --vim.opt.wrap = false
 
