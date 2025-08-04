@@ -33,10 +33,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
 return {
   'neovim/nvim-lspconfig',
   config = function()
-    require'lspconfig'.ts_ls.setup{
+    ---vim.lsp.config.ts_ls.setup{
       -- handlers = handlers,
       -- capabilities = capabilities
-    }
+    --}
+    vim.lsp.enable("ts_ls")
     -- require'lspconfig'.eslint.setup{}
     --
     -- require'lspconfig'.html.setup {
