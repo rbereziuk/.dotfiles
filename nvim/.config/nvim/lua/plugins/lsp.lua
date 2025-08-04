@@ -15,8 +15,10 @@
 --   ['textDocument/signatureHelp'] =  vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
 -- }
 --
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
--- capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+--Enable (broadcasting) snippet capability for completion
+--local capabilities = vim.lsp.protocol.make_client_capabilities()
+--capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function()
@@ -40,5 +42,25 @@ return {
     -- require'lspconfig'.html.setup {
     --   capabilities = capabilities,
     -- }
+    vim.lsp.config('html', {
+      --capabilities = capabilities,
+    })
+    vim.lsp.enable('html')
+    vim.lsp.enable('emmet_ls')
+
+    local base_on_attach = vim.lsp.config.eslint.on_attach
+    vim.lsp.config("eslint", {
+      on_attach = function(client, bufnr)
+        if not base_on_attach then return end
+
+        base_on_attach(client, bufnr)
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          buffer = bufnr,
+          command = "LspEslintFixAll",
+        })
+      end,
+    })
+    vim.lsp.enable('eslint')
+    --vim.lsp.enable('html')
   end
 }
