@@ -3,8 +3,8 @@ return {
   branch = 'v3.x',
   dependencies = {
     'nvim-lua/plenary.nvim',
-    'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
     'MunifTanjim/nui.nvim',
+    'nvim-tree/nvim-web-devicons', -- optional, but recommended
     -- Optional image support for file preview: See `# Preview Mode` for more information.
     -- {'3rd/image.nvim', opts = {}},
     -- OR use snacks.nvim's image module:

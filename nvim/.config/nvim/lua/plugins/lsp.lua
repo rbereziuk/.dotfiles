@@ -17,8 +17,8 @@
 --
 
 --Enable (broadcasting) snippet capability for completion
---local capabilities = vim.lsp.protocol.make_client_capabilities()
---capabilities.textDocument.completion.completionItem.snippetSupport = true
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function()
@@ -33,11 +33,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
 return {
   'neovim/nvim-lspconfig',
   config = function()
-    ---vim.lsp.config.ts_ls.setup{
-      -- handlers = handlers,
-      -- capabilities = capabilities
-    --}
-    vim.lsp.enable("ts_ls")
+    vim.lsp.config('ts_ls', {
+       handlers = handlers,
+       capabilities = capabilities
+    })
+    vim.lsp.enable('ts_ls')
+    -- vim.lsp.config.ts_ls.setup{
+    --   handlers = handlers,
+    --   capabilities = capabilities
+    -- }
     -- require'lspconfig'.eslint.setup{}
     --
     -- require'lspconfig'.html.setup {
@@ -55,9 +59,9 @@ return {
         if not base_on_attach then return end
 
         base_on_attach(client, bufnr)
-        vim.api.nvim_create_autocmd("BufWritePre", {
+        vim.api.nvim_create_autocmd('BufWritePre', {
           buffer = bufnr,
-          command = "LspEslintFixAll",
+          command = 'LspEslintFixAll',
         })
       end,
     })

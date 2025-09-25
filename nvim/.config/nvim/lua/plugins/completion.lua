@@ -1,6 +1,7 @@
 return {
   'hrsh7th/nvim-cmp', -- Autocompletion plugin
-
+  --version = false, -- last release is way too old
+  --event = 'InsertEnter',
   -- these dependencies will only be loaded when cmp loads
   -- dependencies are always lazy-loaded unless specified otherwise
   dependencies = {
@@ -12,7 +13,6 @@ return {
   },
   config = function()
     local cmp = require'cmp'
-
     require('cmp').setup({
       snippet = {
         -- REQUIRED - you must specify a snippet engine
@@ -34,4 +34,16 @@ return {
       },
     })
   end
+  -- alternative config option from lazyvim
+  -- opts = function()
+  --   local cmp = require('cmp')
+  --   return {
+  --     snippet = {
+  --       -- REQUIRED - you must specify a snippet engine
+  --       expand = function(args)
+  --         require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+  --       end,
+  --     },
+  --   }
+  -- end
 }
