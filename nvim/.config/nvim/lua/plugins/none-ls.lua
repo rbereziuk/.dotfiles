@@ -1,5 +1,5 @@
 return {
-  enabled = true,
+  enabled = false,
   'nvimtools/none-ls.nvim',
   config = function()
     local null_ls = require('null-ls')
