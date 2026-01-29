@@ -15,7 +15,8 @@ return {
 }
 
 -- return {
---   name = 'treesitter-old',
+--   name = 'treesitter',
+--   branch = 'master',
 --   'nvim-treesitter/nvim-treesitter',
 --   build = ':TSUpdate',
 --   opts = {
