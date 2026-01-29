@@ -24,9 +24,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
   callback = function()
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Next Diagnostic' })
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Prev Diagnostic' })
-    -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Goto Definition' })
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Goto Definition' })
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'Code Action' })
-    -- vim.keymap.set('n', '<leader>rs', vim.lsp.buf.rename, { desc = 'Rename Symbol' })
+    vim.keymap.set('n', '<leader>rs', vim.lsp.buf.rename, { desc = 'Rename Symbol' })
   end
 })
 
