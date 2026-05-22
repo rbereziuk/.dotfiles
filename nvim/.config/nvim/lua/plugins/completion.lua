@@ -1,4 +1,5 @@
 return {
+  enabled = false,
   'hrsh7th/nvim-cmp', -- Autocompletion plugin
   version = false, -- last release is way too old
   --event = 'InsertEnter',

@@ -32,15 +32,15 @@ return {
 ]],
       },
     },
-    indent = { enabled = true },
-    scroll = {},
+    -- indent = { enabled = true },
+    -- scroll = {},
     --input = { enabled = true },
     -- notifier = { enabled = true },
     -- quickfile = { enabled = true },
     -- statuscolumn = { enabled = true },
     -- words = { enabled = true },
     --terminal = {},
-    lazygit = {},
+    -- lazygit = {},
 
   },
 

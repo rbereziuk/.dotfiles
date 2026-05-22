@@ -22,8 +22,14 @@
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function()
-    vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Next Diagnostic' })
-    vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Prev Diagnostic' })
+    -- vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Next Diagnostic' })
+    -- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Prev Diagnostic' })
+    vim.keymap.set('n', ']d', function()
+      vim.diagnostic.jump({ count = 1, float = true })
+    end, { desc = 'Next Diagnostic' })
+    vim.keymap.set('n', '[d', function()
+      vim.diagnostic.jump({ count = -1, float = true })
+    end, { desc = 'Prev Diagnostic' })
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Goto Definition' })
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'Code Action' })
     vim.keymap.set('n', '<leader>rs', vim.lsp.buf.rename, { desc = 'Rename Symbol' })
@@ -33,11 +39,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
 return {
   'neovim/nvim-lspconfig',
   config = function()
-    vim.lsp.config('ts_ls', {
-       -- handlers = handlers,
-       -- capabilities = capabilities
-    })
+    --vim.lsp.config('ts_ls', {
+    -- handlers = handlers,
+    -- capabilities = capabilities
+    -- })
     vim.lsp.enable('ts_ls')
+
+
     -- vim.lsp.config.ts_ls.setup{
     --   handlers = handlers,
     --   capabilities = capabilities
@@ -53,19 +61,19 @@ return {
     -- vim.lsp.enable('html')
     -- vim.lsp.enable('emmet_ls')
 
-    local base_on_attach = vim.lsp.config.eslint.on_attach
-    vim.lsp.config("eslint", {
-      on_attach = function(client, bufnr)
-        if not base_on_attach then return end
+    -- local base_on_attach = vim.lsp.config.eslint.on_attach
+    -- vim.lsp.config("eslint", {
+    --   on_attach = function(client, bufnr)
+    --     if not base_on_attach then return end
 
-        base_on_attach(client, bufnr)
-        vim.api.nvim_create_autocmd('BufWritePre', {
-          buffer = bufnr,
-          command = 'LspEslintFixAll',
-        })
-      end,
-    })
-    vim.lsp.enable('eslint')
+    --     base_on_attach(client, bufnr)
+    --     vim.api.nvim_create_autocmd('BufWritePre', {
+    --       buffer = bufnr,
+    --       command = 'LspEslintFixAll',
+    --     })
+    --   end,
+    -- })
+    -- vim.lsp.enable('eslint')
     --vim.lsp.enable('html')
   end
 }

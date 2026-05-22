@@ -1,6 +1,8 @@
 return {
+  --enabled = false,
   'nvim-treesitter/nvim-treesitter',
   lazy = false,
+  --commit = vim.fn.has("nvim-0.12") == 0 and "7caec274fd19c12b55902a5b795100d21531391f" or nil,
   build = ':TSUpdate',
   config = function()
     local treesitter = require("nvim-treesitter")
