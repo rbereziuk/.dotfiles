@@ -6,3 +6,12 @@ function md() {
 # Git commit withoud quotes
 function fgc { git commit -m "$*"; }
 #function fgc { git commit -a -m "$*"; }
+
+tm() {
+  if [ -z "$1" ]; then
+    read "name?Enter new session name: "
+    tmux new-session -s "$name"
+  else
+    tmux new-session -s "$1"
+  fi
+}
