@@ -1,14 +1,17 @@
 return {
-  enabled = false,
   'saghen/blink.cmp',
+
   -- optional: provides snippets for the snippet source
-  dependencies = { 'rafamadriz/friendly-snippets' },
+  dependencies = { 
+    --'rafamadriz/friendly-snippets',
+    { 'L3MON4D3/LuaSnip' }
+  },
 
   -- use a release tag to download pre-built binaries
   version = '1.*',
-  -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
+  -- AND/OR build from source
   -- build = 'cargo build --release',
-  -- If you use nix, you can build from source using latest nightly rust with:
+  -- If you use nix, you can build from source with:
   -- build = 'nix run .#build-plugin',
 
   ---@module 'blink.cmp'
@@ -36,6 +39,8 @@ return {
 
     -- (Default) Only show the documentation popup when manually triggered
     completion = { documentation = { auto_show = false } },
+
+    snippets = { preset = 'luasnip' },
 
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`

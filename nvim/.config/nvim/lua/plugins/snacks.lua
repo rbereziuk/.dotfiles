@@ -32,7 +32,7 @@ return {
 ]],
       },
     },
-    -- indent = { enabled = true },
+    indent = { enabled = true },
     -- scroll = {},
     --input = { enabled = true },
     -- notifier = { enabled = true },
