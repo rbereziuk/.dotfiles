@@ -3,40 +3,20 @@ vim.g.mapleader = ' '
 --> # Mapping
 local vscode = require('vscode')
 
---> Toggle file explorer
-vim.keymap.set('n', '<leader>fe', function() 
-  vscode.action('workbench.action.toggleSidebarVisibility')
-end)
-
---> Find file
-vim.keymap.set('n', '<leader>ff', function() 
-  vscode.action('workbench.action.quickOpen')
-end)
-
---> Find buffer / Tab switcher
+vim.keymap.set('n', '<leader>fe', function() vscode.action('workbench.action.toggleSidebarVisibility') end, { desc = 'Toggle file explorer'})
+vim.keymap.set('n', '<leader>ff', function() vscode.action('workbench.action.quickOpen') end, { desc = 'Find file'})
 vim.keymap.set('n', '<leader>fb', function() 
   vscode.action('workbench.action.showAllEditorsByMostRecentlyUsed')
   --> same as above, but without search
   -- vscode.action('workbench.action.quickOpenPreviousRecentlyUsedEditor')
-end)
+end, {desc = 'Find buffer / Tab switcher'})
 
---> Next diagnostic
-vim.keymap.set('n', '<leader>]d', function()
-  vscode.action('editor.action.marker.next')
-end)
+vim.keymap.set('n', '<leader>]d', function() vscode.action('editor.action.marker.next') end, { desc = 'Next diagnostic'})
+vim.keymap.set('n', '<leader>[d', function() vscode.action('editor.action.marker.prev') end, {desc = 'Prev diagnostic'})
 
---> Prev diagnostic
-vim.keymap.set('n', '<leader>[d', function()
-  vscode.action('editor.action.marker.prev')
-end)
-
---> Trigger Code Actions
 vim.keymap.set('n', '<leader>ca', function()
   vscode.action('closeMarkersNavigation')
   vscode.action('editor.action.quickFix')
-end)
+end, { desc = 'Trigger code actions'})
 
---> Show hover (error details, type info, etc.)
-vim.keymap.set('n', '<leader>K', function()
-  vscode.action('editor.action.showHover')
-end)
+vim.keymap.set('n', '<leader>K', function() vscode.action('editor.action.showHover') end, { desc = 'Show hover (error details, type info, etc.)' })
