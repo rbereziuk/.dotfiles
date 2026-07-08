@@ -1,0 +1,13 @@
+font-size = 14
+theme = "TokyoNight Moon"
+font-family = JetBrains Mono
+#adjust-cell-height = 10%
+
+shell-integration-features = no-cursor
+cursor-style = block
+cursor-style-blink = false
+
+
+
+window-width = 135
+window-height = 39
