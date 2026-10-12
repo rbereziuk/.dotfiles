@@ -106,11 +106,11 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Custom settings
-
-if [[ -r ~/.aliases ]]; then
-  . ~/.aliases
-fi
-
+# Load custom config files if they exist and are readable
+for file in ~/.{aliases,functions,extra}; do
+  [[ -r "$file" ]] && source "$file"
+done
+unset file
 
 eval "$(starship init zsh)"
 
