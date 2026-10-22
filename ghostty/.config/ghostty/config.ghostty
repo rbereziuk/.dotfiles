@@ -1,13 +1,23 @@
+# ─── Font ───────────────────────────────
 font-size = 14
-theme = "TokyoNight Moon"
 font-family = JetBrains Mono
 #adjust-cell-height = 10%
 
+# ─── Theme ──────────────────────────────
+theme = "TokyoNight Moon"
+
+# ─── Cursor ─────────────────────────────
 shell-integration-features = no-cursor
 cursor-style = block
 cursor-style-blink = false
 
+# ─── Window ─────────────────────────────
+window-padding-x = 10
+window-padding-y = 5
+window-padding-balance = true
 
+# ─── Mouse ──────────────────────────────
+mouse-hide-while-typing = true
 
-window-width = 135
-window-height = 39
+# ── OS-specific ─────────────────────────
+config-file = ?linux-config
