@@ -101,8 +101,6 @@ return {
       },
       sections = {
         { section = 'header' },
-        { section = 'keys', gap = 1, padding = 1 },
-        { section = 'startup' },
         function(self)
           local quote, author = random_quote()
           if not quote then
@@ -114,13 +112,14 @@ return {
           if author and author ~= '' then
             text[#text + 1] = { '\n— ' .. author, hl = 'special' }
           end
-
           return {
             align = 'center',
-            padding = { 0, 2 },
+            padding = { 2, 0 },
             text = text,
           }
         end,
+        { section = 'keys', gap = 1, padding = 1 },
+        { section = 'startup' },
       },
     },
     indent = { enabled = true },
